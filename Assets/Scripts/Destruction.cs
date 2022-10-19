@@ -11,22 +11,18 @@ namespace DorudonGames.Runtime.Manager
         [SerializeField] private float sphereRadius;
         [SerializeField] Camera cam;
         [SerializeField] private float multiplicationCoefficient;
-       
-        /*
-        Rigidbody rb;
-        private void Start()
-        {
-            rb = GetComponent<Rigidbody>();
-        }
-        */
-
+        
+        private List<Rigidbody> ObjectsToBeDestruct = new List<Rigidbody>();
+        
+        public List<Rigidbody> GetObjectsToBeDestruct() { return ObjectsToBeDestruct; }
+        
         private void FixedUpdate()
         {
             if (Physics.SphereCast(cam.ScreenPointToRay(Input.mousePosition), sphereRadius, out RaycastHit hitInfo))
             {
-                if (!LevelManager.Instance.ObjectsToBeDestruct.Contains(hitInfo.collider.gameObject))
+                if (!ObjectsToBeDestruct.Contains(hitInfo.rigidbody))
                 {
-                    LevelManager.Instance.AddToList(hitInfo.collider.gameObject);
+                    ObjectsToBeDestruct.Add(hitInfo.rigidbody);
                 }
             }
         }
@@ -34,14 +30,13 @@ namespace DorudonGames.Runtime.Manager
         private void Update()
         {
             
-            for (int i = 0; i < LevelManager.Instance.ObjectsToBeDestruct.Count; i++)
+            for (int i = 0; i < ObjectsToBeDestruct.Count; i++)
             {
-                //burdakileri LevelManager.Instance.ObjectsToBeDestruct[i].rb yapýnca hata verdi
-                LevelManager.Instance.ObjectsToBeDestruct[i].GetComponent<Rigidbody>().isKinematic = false;
-                LevelManager.Instance.ObjectsToBeDestruct[i].GetComponent<Rigidbody>().mass *=multiplicationCoefficient;
-                LevelManager.Instance.RemoveFromList(LevelManager.Instance.ObjectsToBeDestruct[i]);
+                //burdakileri LevelManager.Instance.ObjectsToBeDestruct[i].rb yapï¿½nca hata verdi
+                ObjectsToBeDestruct[i].isKinematic = false;
+                ObjectsToBeDestruct[i].mass *= multiplicationCoefficient;
+                ObjectsToBeDestruct.RemoveAt(i);
             }
         }
-
     }
 }
