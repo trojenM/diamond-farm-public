@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace DorudonGames.Runtime.Misc
 {
-    public abstract class Singleton<T> : MonoBehaviour where T : Component
+    public abstract class Singleton<T> : MonoBehaviour where T : UnityEngine.Component
     {
         #region Serializable Fields
     

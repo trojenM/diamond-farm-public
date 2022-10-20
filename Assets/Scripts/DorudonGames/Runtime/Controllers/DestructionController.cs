@@ -6,7 +6,7 @@ using UnityEngine;
 
 namespace DorudonGames.Runtime.Manager
 {
-    public class Destruction : Singleton<Destruction>
+    public class DestructionController : Singleton<DestructionController>
     {
 
         [SerializeField] private float multiplicationCoefficient;
