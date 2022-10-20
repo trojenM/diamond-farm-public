@@ -21,7 +21,7 @@ namespace DorudonGames.Runtime.Manager
         /// <summary>
         /// This function called when per frame.
         /// </summary>
-        private void Update()
+        private void LateUpdate()
         {
             touchVelocity = GetTouchDirection().magnitude;
             lastTouchPosition = Input.mousePosition;

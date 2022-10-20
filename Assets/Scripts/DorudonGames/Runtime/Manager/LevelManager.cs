@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using DorudonGames.Runtime.EventServices;
 using DorudonGames.Runtime.EventServices.Resources.Game;
 using UnityEngine.SceneManagement;
+using UnityEngine.UIElements;
 
 namespace DorudonGames.Runtime.Manager
 {
@@ -14,6 +15,12 @@ namespace DorudonGames.Runtime.Manager
         protected override void Awake()
         {
             base.Awake();
+            
+        }
+
+        private void Start()
+        {
+            EventDispatchers.OnCreditUpdatedDispatcher(GameManager.Instance.GetCreditAmount, 0f, 0f);
         }
 
         private void Update()
