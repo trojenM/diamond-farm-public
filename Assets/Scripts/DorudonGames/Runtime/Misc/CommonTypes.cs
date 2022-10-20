@@ -27,7 +27,7 @@ namespace DorudonGames.Runtime.Misc
         public static string TRUE_KEY = "true_data";
         public static string FALSE_KEY = "false_data";
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
 
         public static string EDITOR_LEVELS_PATH = "Levels/";
         public static string EDITOR_GAME_SETTINGS_PATH = "GameSettings";
