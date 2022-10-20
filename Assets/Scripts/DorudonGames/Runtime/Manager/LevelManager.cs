@@ -1,3 +1,4 @@
+using System;
 using DorudonGames.Runtime.Misc;
 using UnityEngine;
 using System.Collections;
@@ -13,6 +14,14 @@ namespace DorudonGames.Runtime.Manager
         protected override void Awake()
         {
             base.Awake();
+        }
+
+        private void Update()
+        {
+            #if UNITY_EDITOR 
+            if (Input.GetKeyDown(KeyCode.M))
+                IncreaseCreditAmount(500);
+            #endif
         }
 
         public void NextLevel()
