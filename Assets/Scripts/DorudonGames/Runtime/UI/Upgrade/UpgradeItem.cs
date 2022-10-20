@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices;
 using DorudonGames.Runtime.EventServices.Resources.Game;
+using DorudonGames.Runtime.Manager;
 using DorudonGames.Runtime.Scriptables;
 using TMPro;
 using UnityEngine;
@@ -44,18 +45,8 @@ public class UpgradeItem : MonoBehaviour
         
         UpgradeLevel += 1;
         PlayerPrefs.SetInt(info.UpgradeType.ToString(), UpgradeLevel);
-        DispatchUpgradeEarned();
+        EventDispatchers.DispatchUpgradeEarned(UpgradeType, UpgradeLevel);
+        SoundManager.Instance.Play("UpgradeEarned");
     }
 
-
-    private void DispatchUpgradeEarned()
-    {
-        UpgradeEarnedEvent upgradeEarnedEvent = new UpgradeEarnedEvent()
-        {
-            UpgradeType = UpgradeType,
-            UpgradeLevel = UpgradeLevel,
-        };
-        EventService.DispatchEvent(upgradeEarnedEvent);
-    }
-    
 }

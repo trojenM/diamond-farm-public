@@ -20,6 +20,7 @@ namespace DorudonGames.Runtime.Misc
 
         //DATA KEYS
         public static string PLAYER_DATA_KEY = "player_data";
+        public static string CREDIT_DATA_KEY = "credit_amount_data";
         public static string LEVEL_ID_DATA_KEY = "level_data";
         public static string FIRST_TIME_RUNNED_KEY = "first_time_data";
         public static string SOUND_STATE_KEY = "sound_state_data";
