@@ -42,11 +42,18 @@ public class UpgradeItem : MonoBehaviour
     {
         if (!Interactable)
             return;
-        
-        UpgradeLevel += 1;
-        PlayerPrefs.SetInt(info.UpgradeType.ToString(), UpgradeLevel);
-        EventDispatchers.DispatchUpgradeEarned(UpgradeType, UpgradeLevel);
-        SoundManager.Instance.Play("UpgradeEarned");
+        if(GameManager.Instance.GetCreditAmount == info.LevelsAndCosts[UpgradeLevel].Cost)
+        {
+            UpgradeLevel += 1;
+            PlayerPrefs.SetInt(info.UpgradeType.ToString(), UpgradeLevel);
+            EventDispatchers.DispatchUpgradeEarned(UpgradeType, UpgradeLevel);
+            SoundManager.Instance.Play("UpgradeEarned");
+        }
+        else
+        { 
+            return;
+        }
+       
     }
 
 }

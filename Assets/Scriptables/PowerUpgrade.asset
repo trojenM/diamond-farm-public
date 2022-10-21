@@ -15,3 +15,14 @@ MonoBehaviour:
   Icon: {fileID: 0}
   Header: Power Up!
   UpgradeType: 0
+  LevelsAndCosts:
+  - Level: 1
+    Cost: 50
+  - Level: 2
+    Cost: 100
+  - Level: 3
+    Cost: 150
+  - Level: 4
+    Cost: 200
+  - Level: 5
+    Cost: 250

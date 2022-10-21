@@ -9,5 +9,14 @@ namespace DorudonGames.Runtime.Scriptables
         public Sprite Icon;
         public string Header;
         public UpgradeType UpgradeType;
+        public LevelsAndCosts[] LevelsAndCosts;
+      
+    }
+  
+    [System.Serializable]
+    public class LevelsAndCosts
+    {    
+        public int Level;
+        public int Cost;
     }
 }
