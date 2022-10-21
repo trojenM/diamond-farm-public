@@ -1,4 +1,6 @@
 using DorudonGames.Runtime.Component;
+using DorudonGames.Runtime.EventServices;
+using DorudonGames.Runtime.EventServices.Resources.Game;
 using DorudonGames.Runtime.Misc;
 using DorudonGames.Runtime.Scriptables;
 using UnityEngine;
@@ -17,6 +19,7 @@ namespace DorudonGames.Runtime.Manager
         protected override void Awake()
         {
             base.Awake();
+            //EventService.AddListener<UpgradeEarnedEvent>();
             _cd = timeInterval;
             SetHammerSpeedSlow();
         }
@@ -62,6 +65,11 @@ namespace DorudonGames.Runtime.Manager
             {
                 hammer.StartHammer();
             }   
+        }
+        
+        public void GetSpeedUpgrade(UpgradeEarnedEvent e)
+        {
+                   
         }
 
         private void SetHammerSpeedSlow() => HammerComponent.SetRotateSpeed(lowSpeed);

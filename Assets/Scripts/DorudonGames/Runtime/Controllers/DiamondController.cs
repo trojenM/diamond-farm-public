@@ -43,7 +43,10 @@ namespace DorudonGames.Runtime.Controllers
             sequence.Join(diamond.tr.DOMove(destroyPosition.position, animationTime));
             sequence.OnComplete(() =>
             {
+                LevelManager.Instance.IncreaseCreditAmount(100);
+                InterfaceManager.Instance.FlyCurrencyFromWorld(diamond.transform.position);
                 destroyParticle.Play();
+                diamond.gameObject.SetActive(false);
                 FlowManager.Instance.NextFlow();
             });
         }

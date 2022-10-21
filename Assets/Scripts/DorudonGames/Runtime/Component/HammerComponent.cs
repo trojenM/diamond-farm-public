@@ -19,6 +19,7 @@ namespace DorudonGames.Runtime.Component
         private Collider _collider;
 
 
+        private static float _multiplier = 1f;
         private static float _rotateSpeed = 30f;
 
         private void Awake()
@@ -49,7 +50,7 @@ namespace DorudonGames.Runtime.Component
 
         private void RotateHammer()
         {
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, _targetRotation,_rotateSpeed*Time.deltaTime);
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, _targetRotation,_rotateSpeed*_multiplier*Time.deltaTime);
         }
         
         private void SwapTargetRotation()
