@@ -13,7 +13,6 @@ public class EButton : Button
         {
             if (!IsInteractable())
                 return;
-            
             VibrationManager.Instance.Haptic(HapticTypes.HeavyImpact);
         });
     }

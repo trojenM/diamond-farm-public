@@ -17,12 +17,12 @@ MonoBehaviour:
   UpgradeType: 2
   LevelsAndCosts:
   - Level: 1
-    Cost: 50
+    Cost: 0
   - Level: 2
-    Cost: 100
+    Cost: 0
   - Level: 3
-    Cost: 150
+    Cost: 0
   - Level: 4
-    Cost: 200
+    Cost: 0
   - Level: 5
-    Cost: 250
+    Cost: 0
