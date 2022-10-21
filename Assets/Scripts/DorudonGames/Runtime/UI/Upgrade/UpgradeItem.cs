@@ -15,7 +15,7 @@ public class UpgradeItem : MonoBehaviour
 {
     [SerializeField] private UpgradeInfo info;
     [SerializeField] private TMP_Text headerText;
-    [SerializeField] private TMP_Text levelText;
+    [SerializeField] private TMP_Text reqText;
     [SerializeField] private Image iconImage;
     
     protected UpgradeType UpgradeType;
@@ -38,7 +38,7 @@ public class UpgradeItem : MonoBehaviour
         headerText.text = info.Header;
         UpgradeType = info.UpgradeType;
         UpgradeLevel = PlayerPrefs.GetInt(info.UpgradeType.ToString(), 1);
-        levelText.text = ("$" + info.LevelsAndCosts[UpgradeLevel - 1].Cost);
+        reqText.text = ("$" + info.LevelsAndCosts[UpgradeLevel - 1].Cost);
     }
 
     public  virtual void Select()
@@ -54,11 +54,11 @@ public class UpgradeItem : MonoBehaviour
             SoundManager.Instance.Play("UpgradeEarned");
             if(UpgradeLevel < info.LevelsAndCosts.Length)
             {
-                levelText.text = ("$" + info.LevelsAndCosts[UpgradeLevel - 1].Cost);
+                reqText.text = ("$" + info.LevelsAndCosts[UpgradeLevel - 1].Cost);
             }
             else
             {
-                levelText.text = (" Max ");
+                reqText.text = (" Max ");
                 Interactable = false;
             }
      

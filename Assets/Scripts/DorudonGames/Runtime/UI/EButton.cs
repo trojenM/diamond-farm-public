@@ -11,7 +11,7 @@ public class EButton : Button
     {
         onClick.AddListener(() =>
         {
-            if (!IsInteractable())
+            if (!GetComponent<UpgradeItem>().GetInteractable)
                 return;
             VibrationManager.Instance.Haptic(HapticTypes.HeavyImpact);
         });
