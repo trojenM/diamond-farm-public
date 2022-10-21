@@ -1,11 +1,13 @@
 using DorudonGames.Runtime.Component;
 using DorudonGames.Runtime.Misc;
+using DorudonGames.Runtime.Scriptables;
 using UnityEngine;
 
 namespace DorudonGames.Runtime.Manager
 {
     public class HammerManager : Singleton<HammerManager>
     {
+        [SerializeField] private UpgradeInfo speedUpgrade;
         [SerializeField] private float lowSpeed, highSpeed;
         [SerializeField] private float timeInterval = 1f;
         private float _cd = 0f;

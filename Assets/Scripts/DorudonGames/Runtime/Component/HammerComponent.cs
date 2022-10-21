@@ -11,7 +11,7 @@ namespace DorudonGames.Runtime.Component
         [SerializeField] private float sphereRadius;
         [SerializeField] private float rotateDegree;
         [SerializeField] private float rotationDistance = 0.025f;
-    
+        [SerializeField] private float damage = 15f;
         private Quaternion _startRotation, _endRotation; 
         private Quaternion _targetRotation;
         private bool _rotateDown = true;
@@ -84,8 +84,7 @@ namespace DorudonGames.Runtime.Component
             {
                 if (hit.transform.TryGetComponent(out PieceComponent piece))
                 {
-                    piece.rb.isKinematic = false;
-                    piece.rb.mass = 10;
+                    piece.TakeDamage(damage,castPosition.position);
                 }
             }
         }
@@ -95,6 +94,13 @@ namespace DorudonGames.Runtime.Component
         public bool RotationDistance(Quaternion value, Quaternion about, float range) {
             return Quaternion.Dot(value,about) > 1f-range;
         }
+        
+        void OnDrawGizmos()
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawWireSphere(castPosition.position + castPosition.forward * (sphereRadius/2), sphereRadius);
+        }
+
 
     }
 }

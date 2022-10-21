@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Icon: {fileID: 0}
   Header: Speed Up!
-  UpgradeType: 0
+  UpgradeType: 1
