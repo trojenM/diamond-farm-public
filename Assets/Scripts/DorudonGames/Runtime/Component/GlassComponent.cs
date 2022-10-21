@@ -6,23 +6,23 @@ namespace DorudonGames.Runtime.Component
     public class GlassComponent : MonoBehaviour
     {
         public Transform tr;
-        [SerializeField] private Material glassMaterial;
+        //[SerializeField] private Material glassMaterial;
         private PieceComponent[] _pieces;
 
         private void Awake()
         {
             _pieces = GetComponentsInChildren<PieceComponent>();
-            SetGlassSettings();
+            //SetGlassSettings();
             gameObject.SetActive(false);
         }
         
-        private void SetGlassSettings()
+        /*private void SetGlassSettings()
         {
             foreach (var piece in _pieces)
             {
                 piece.SetMaterial(glassMaterial);
             }
-        }
+        }*/
 
         public void ResetGlass()
         {
