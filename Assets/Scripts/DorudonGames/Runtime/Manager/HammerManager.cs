@@ -7,6 +7,7 @@ namespace DorudonGames.Runtime.Manager
 {
     public class HammerManager : Singleton<HammerManager>
     {
+        [SerializeField] private HammerComponent[] hammers;
         [SerializeField] private UpgradeInfo speedUpgrade;
         [SerializeField] private float lowSpeed, highSpeed;
         [SerializeField] private float timeInterval = 1f;
@@ -45,6 +46,22 @@ namespace DorudonGames.Runtime.Manager
             _isTriggered = true;
             SetHammerSpeedSlow();
             //Enable guide panel
+        }
+
+        public void StopHammers()
+        {
+            foreach (var hammer in hammers)
+            {
+                hammer.StopHammer();
+            }
+        }
+        
+        public void StartHammers()
+        {
+            foreach (var hammer in hammers)
+            {
+                hammer.StartHammer();
+            }   
         }
 
         private void SetHammerSpeedSlow() => HammerComponent.SetRotateSpeed(lowSpeed);

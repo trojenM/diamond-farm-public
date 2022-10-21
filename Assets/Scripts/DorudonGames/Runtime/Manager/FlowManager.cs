@@ -19,6 +19,7 @@ namespace DorudonGames.Runtime.Manager
 
         public void NextFlow()
         {
+            destroyedPieceCount = 0;
             isAnimating = false;
             glassController.SpawnNextGlass();
             diamondController.SpawnNextDiamond();
@@ -32,6 +33,7 @@ namespace DorudonGames.Runtime.Manager
             if (destroyedPieceCount >= destroyedThreshold)
             {
                 isAnimating = true;
+                HammerManager.Instance.StopHammers();
                 glassController.DestroyCurrentGlass();
                 diamondController.AnimateAndDestroy();
             }

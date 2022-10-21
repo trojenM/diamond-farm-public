@@ -15,6 +15,7 @@ namespace DorudonGames.Runtime.Component
         private Quaternion _startRotation, _endRotation; 
         private Quaternion _targetRotation;
         private bool _rotateDown = true;
+        private bool _hasStopped = false;
         private Collider _collider;
 
 
@@ -23,15 +24,19 @@ namespace DorudonGames.Runtime.Component
         private void Awake()
         {
             _collider = GetComponent<Collider>();
-            _startRotation = transform.rotation;
+            _startRotation = transform.localRotation;
             _endRotation = Quaternion.Euler(_startRotation.eulerAngles + new Vector3(0f, 0f, rotateDegree));
             SetTargetDown();
         }
 
         private void Update()
         {
-            if (RotationDistance(transform.rotation, _targetRotation, rotationDistance))
-                SwapTargetRotation();
+            if (!_hasStopped)
+            {
+                if (RotationDistance(transform.localRotation, _targetRotation, rotationDistance))
+                    SwapTargetRotation();
+            }
+            
             RotateHammer();
         }
 
@@ -44,7 +49,7 @@ namespace DorudonGames.Runtime.Component
 
         private void RotateHammer()
         {
-            transform.rotation = Quaternion.RotateTowards(transform.rotation, _targetRotation,_rotateSpeed*Time.deltaTime);
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, _targetRotation,_rotateSpeed*Time.deltaTime);
         }
         
         private void SwapTargetRotation()
@@ -87,6 +92,20 @@ namespace DorudonGames.Runtime.Component
                     piece.TakeDamage(damage,castPosition.position);
                 }
             }
+        }
+
+        public void StartHammer()
+        {
+            SetTargetDown();
+            _hasStopped = false;
+            _collider.enabled = true;
+        }
+        
+        public void StopHammer()
+        {
+            SetTargetUp();
+            _hasStopped = true;
+            _collider.enabled = false;
         }
 
         public static void SetRotateSpeed(float speed) => _rotateSpeed = speed;

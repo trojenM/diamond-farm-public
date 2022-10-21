@@ -37,7 +37,7 @@ namespace DorudonGames.Runtime.Manager
             glass.ResetGlass();
             glass.gameObject.SetActive(true);
             glass.tr.position = spawnPosition.position;
-            glass.tr.DOMove(placedPosition.position, spawnTime);
+            glass.tr.DOMove(placedPosition.position, spawnTime).OnComplete(() => HammerManager.Instance.StartHammers());
         }
 
         public GlassComponent GetCurrentGlass() => glasses[_current] ? glasses[_current] : null;
