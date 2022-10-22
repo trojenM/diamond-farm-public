@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using DG.Tweening;
 using DorudonGames.Runtime.Component;
 using DorudonGames.Runtime.Enum;
@@ -11,28 +12,28 @@ namespace DorudonGames.Runtime.Controllers
 {
     public class DiamondController : MonoBehaviour
     {
-        [SerializeField] private DiamondComponent[] diamonds;
+        [SerializeField] private List<Diamond> diamondList;
         [SerializeField] private ParticleSystem destroyParticle;
         [SerializeField] private Transform spawnPosition;
         [SerializeField] private Transform placedPosition;
         [SerializeField] private Transform destroyPosition;
         [SerializeField] private float spawnTime;
         [SerializeField] private float animationTime;
-        private int _current = 0, _max;
+        private int _current = 0, _max, diaLevel = 0;
 
         private void Awake()
         {
             EventService.AddListener<UpgradeEarnedEvent>(OnUpgradeEarned);
-            _max = diamonds.Length;
+            
         }
 
         public void SpawnNextDiamond()
         {
-            //_current++;
-            //if (_current >= _max)
-              //  _current = 0;
+            _current++;
+            if (_current >= _max)
+                  _current = 0;
 
-            var diamond = diamonds[_current];
+            var diamond = diamondList[diaLevel].diamondItems[_current];
             diamond.gameObject.SetActive(true);
             diamond.tr.position = spawnPosition.position;
             diamond.tr.DOMove(placedPosition.position, spawnTime);
@@ -40,7 +41,7 @@ namespace DorudonGames.Runtime.Controllers
 
         public void AnimateAndDestroy()
         {
-            var diamond = diamonds[_current];
+            var diamond = diamondList[diaLevel].diamondItems[_current];
             Sequence sequence = DOTween.Sequence();
             sequence.Join(diamond.tr.DOLocalRotate(new Vector3(0, 720, 0), animationTime, RotateMode.FastBeyond360).SetRelative(true)
                 .SetEase(Ease.Linear));
@@ -60,7 +61,16 @@ namespace DorudonGames.Runtime.Controllers
             if (e.UpgradeType != UpgradeType.INCOME)
                 return;
             
-            _current = (int)e.UpgradeLevelValue;
+            diaLevel = (int)e.UpgradeLevelValue-1;
+            _max = diamondList[diaLevel].diamondItems.Length;
+            if (_current >= _max)
+                _current = 0;
         }
+    }
+
+    [Serializable]
+    public class Diamond
+    {
+        public DiamondComponent[] diamondItems;
     }
 }

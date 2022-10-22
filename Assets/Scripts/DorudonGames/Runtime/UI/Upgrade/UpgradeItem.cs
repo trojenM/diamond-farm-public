@@ -32,6 +32,11 @@ public class UpgradeItem : MonoBehaviour
         Initialize();
     }
 
+    private void Start()
+    {
+        EventDispatchers.DispatchUpgradeEarned(UpgradeType, info.LevelsAndCosts[UpgradeLevel-1].LevelValue);
+    }
+
     private void Initialize()
     {
         Interactable = true;
