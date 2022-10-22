@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Codice.Client.BaseCommands;
 using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices;
 using DorudonGames.Runtime.EventServices.Resources.Game;
@@ -35,36 +36,39 @@ public class UpgradeItem : MonoBehaviour
     {
         Interactable = true;
         iconImage.sprite = info.Icon;
+        iconImage.color = Color.blue;
         headerText.text = info.Header;
         UpgradeType = info.UpgradeType;
         UpgradeLevel = PlayerPrefs.GetInt(info.UpgradeType.ToString(), 1);
-        reqText.text = ("$" + info.LevelsAndCosts[UpgradeLevel - 1].Cost);
+        UpdateButton();
     }
 
-    public  virtual void Select()
+    public virtual void Select()
     {
-
         if (!Interactable)
             return;
-        if(UpgradeLevel <= info.LevelsAndCosts.Length && GameManager.Instance.GetCreditAmount >= info.LevelsAndCosts[UpgradeLevel-1].Cost)
+        
+        print("test");
+        // 1 2 3 4  
+        if (GameManager.Instance.GetCreditAmount >= info.LevelsAndCosts[UpgradeLevel-1].Cost)
         {
+            EventDispatchers.DispatchUpgradeEarned(UpgradeType, info.LevelsAndCosts[UpgradeLevel-1].LevelValue);
             UpgradeLevel += 1;
             PlayerPrefs.SetInt(info.UpgradeType.ToString(), UpgradeLevel);
-            EventDispatchers.DispatchUpgradeEarned(UpgradeType, UpgradeLevel);
             SoundManager.Instance.Play("UpgradeEarned");
-            if(UpgradeLevel < info.LevelsAndCosts.Length)
-            {
-                reqText.text = ("$" + info.LevelsAndCosts[UpgradeLevel - 1].Cost);
-            }
-            else
-            {
-                reqText.text = (" Max ");
-                Interactable = false;
-            }
-     
+            UpdateButton();
         }
-        
-       
     }
 
+    private void UpdateButton()
+    {
+        if (UpgradeLevel >= info.LevelsAndCosts.Length)
+        {
+            reqText.text = "MAX";
+            Interactable = false;
+            return;
+        }
+
+        reqText.text = "$" + info.LevelsAndCosts[UpgradeLevel - 1].Cost;
+    }
 }

@@ -16,7 +16,7 @@ namespace DorudonGames.Runtime.Scriptables
     [System.Serializable]
     public class LevelsAndCosts
     {    
-        public int Level;
+        public float LevelValue;
         public int Cost;
     }
 }

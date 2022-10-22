@@ -1,4 +1,5 @@
 using DorudonGames.Runtime.Component;
+using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices;
 using DorudonGames.Runtime.EventServices.Resources.Game;
 using DorudonGames.Runtime.Misc;
@@ -9,71 +10,66 @@ namespace DorudonGames.Runtime.Manager
 {
     public class HammerManager : Singleton<HammerManager>
     {
-        [SerializeField] private HammerComponent[] hammers;
-        [SerializeField] private UpgradeInfo speedUpgrade;
-        [SerializeField] private float lowSpeed, highSpeed;
-        [SerializeField] private float timeInterval = 1f;
-        private float _cd = 0f;
-        private bool _isTriggered = false;
+        //[SerializeField] private HammerComponent[] hammers;
+        //[SerializeField] private UpgradeInfo speedUpgrade;
+        //[SerializeField] private float lowSpeed, highSpeed;
+        //[SerializeField] private float timeInterval = 1f;
+
+        [SerializeField] private bool isHammerStopped;
+        [SerializeField] private float baseSpeed;
+        [SerializeField] private float maxSpeed;
+        [SerializeField] private float decreaseInterval;
+        [SerializeField] private int incrementSegment;
+        //private float _cd = 0f;
+        //private bool _isTriggered = false;
+        private float _interval;
+        private float _hammerSpeedValue;
+        private float _hammerSpeedMul = 1;
 
         protected override void Awake()
         {
             base.Awake();
-            //EventService.AddListener<UpgradeEarnedEvent>();
-            _cd = timeInterval;
-            SetHammerSpeedSlow();
+            EventService.AddListener<UpgradeEarnedEvent>(OnUpgradeEarned);
+            _interval = decreaseInterval;
+        }
+
+        private void OnUpgradeEarned(UpgradeEarnedEvent e)
+        {
+            if (e.UpgradeType == UpgradeType.SPEED)
+                _hammerSpeedMul = e.UpgradeLevelValue;
+            else if (e.UpgradeType == UpgradeType.POWER)
+                SetHammerPower(e.UpgradeLevelValue);
         }
 
         void Update()
         {
+            ManageHammerSpeed();
+            EventDispatchers.DispatchHammerSpeed((baseSpeed + (_hammerSpeedValue * (maxSpeed - baseSpeed))) * _hammerSpeedMul, isHammerStopped);
+        }
+        
+        private void ManageHammerSpeed()
+        {
             if (TouchManager.Instance.IsTouchDown())
             {
-                _cd = timeInterval;
-                _isTriggered = false;
-                SetHammerSpeedFast();
+                _hammerSpeedValue += 1f / incrementSegment; 
+                _interval = decreaseInterval * 4f;
             }
-
-            if (_cd > 0 && !_isTriggered)
-            {
-                _cd -= Time.deltaTime;
             
-                if (_cd <= Time.deltaTime)
-                {
-                    TriggerEvents();
-                }
-            }
-        }
-
-        private void TriggerEvents()
-        {
-            _isTriggered = true;
-            SetHammerSpeedSlow();
-            //Enable guide panel
-        }
-
-        public void StopHammers()
-        {
-            foreach (var hammer in hammers)
+            _interval -= Time.deltaTime;
+            
+            if (_interval <= 0f)
             {
-                hammer.StopHammer();
+                _hammerSpeedValue -= 1f / incrementSegment;
+                _interval = decreaseInterval;
             }
+
+            _hammerSpeedValue = Mathf.Clamp01(_hammerSpeedValue);
         }
         
-        public void StartHammers()
-        {
-            foreach (var hammer in hammers)
-            {
-                hammer.StartHammer();
-            }   
-        }
+        public void SetHammerPower(float power) { EventDispatchers.DispatchHammerPower(power); }
+        public void StopHammers() { isHammerStopped = true; }
+        public void StartHammers() { isHammerStopped = false; }
+
         
-        public void GetSpeedUpgrade(UpgradeEarnedEvent e)
-        {
-                   
-        }
-
-        private void SetHammerSpeedSlow() => HammerComponent.SetRotateSpeed(lowSpeed);
-
-        private void SetHammerSpeedFast() => HammerComponent.SetRotateSpeed(highSpeed);
     }
 }

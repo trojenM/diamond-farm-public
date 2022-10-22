@@ -1,3 +1,5 @@
+using DorudonGames.Runtime.EventServices;
+using DorudonGames.Runtime.EventServices.Resources.Game;
 using DorudonGames.Runtime.Manager;
 using UnityEngine;
 
@@ -16,14 +18,14 @@ namespace DorudonGames.Runtime.Component
         private Quaternion _targetRotation;
         private bool _rotateDown = true;
         private bool _hasStopped = false;
+        private bool _hasStoppedSwitch = false;
         private Collider _collider;
-
-
-        private static float _multiplier = 1f;
-        private static float _rotateSpeed = 30f;
+        private float _hammerSpeed;
 
         private void Awake()
         {
+            EventService.AddListener<UpdateHammerSpeedEvent>(UpdateHammerSpeed);
+            EventService.AddListener<UpdateHammerPowerEvent>(UpdateHammerPower);
             _collider = GetComponent<Collider>();
             _startRotation = transform.localRotation;
             _endRotation = Quaternion.Euler(_startRotation.eulerAngles + new Vector3(0f, 0f, rotateDegree));
@@ -32,6 +34,16 @@ namespace DorudonGames.Runtime.Component
 
         private void Update()
         {
+            if (_hasStoppedSwitch == _hasStopped)
+            {
+                if (!_hasStoppedSwitch)
+                    StartHammer();
+                else 
+                    StopHammer();
+                
+                _hasStoppedSwitch = !_hasStoppedSwitch;
+            }
+            
             if (!_hasStopped)
             {
                 if (RotationDistance(transform.localRotation, _targetRotation, rotationDistance))
@@ -39,6 +51,17 @@ namespace DorudonGames.Runtime.Component
             }
             
             RotateHammer();
+        }
+
+        private void UpdateHammerSpeed(UpdateHammerSpeedEvent e)
+        {
+            _hammerSpeed = e.Speed;
+            _hasStopped = e.IsHammerStopped;
+        }
+
+        private void UpdateHammerPower(UpdateHammerPowerEvent e)
+        {
+            damage = e.Power;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -50,7 +73,7 @@ namespace DorudonGames.Runtime.Component
 
         private void RotateHammer()
         {
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, _targetRotation,_rotateSpeed*_multiplier*Time.deltaTime);
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, _targetRotation,_hammerSpeed * Time.deltaTime);
         }
         
         private void SwapTargetRotation()
@@ -95,21 +118,21 @@ namespace DorudonGames.Runtime.Component
             }
         }
 
-        public void StartHammer()
+        private void StartHammer()
         {
             SetTargetDown();
             _hasStopped = false;
             _collider.enabled = true;
         }
         
-        public void StopHammer()
+        private void StopHammer()
         {
             SetTargetUp();
             _hasStopped = true;
             _collider.enabled = false;
         }
 
-        public static void SetRotateSpeed(float speed) => _rotateSpeed = speed;
+        //public static void SetRotateSpeed(float speed) => _rotateSpeed = speed;
 
         public bool RotationDistance(Quaternion value, Quaternion about, float range) {
             return Quaternion.Dot(value,about) > 1f-range;

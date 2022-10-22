@@ -16,14 +16,33 @@ namespace DorudonGames.Runtime.EventServices
             EventService.DispatchEvent(creditUpdatedEvent);
         }
         
-        public static void DispatchUpgradeEarned(UpgradeType upgradeType, int upgradeLevel)
+        public static void DispatchUpgradeEarned(UpgradeType upgradeType, float upgradeLevelValue)
         {
             UpgradeEarnedEvent upgradeEarnedEvent = new UpgradeEarnedEvent()
             {
                 UpgradeType = upgradeType,
-                UpgradeLevel = upgradeLevel,
+                UpgradeLevelValue = upgradeLevelValue,
             };
             EventService.DispatchEvent(upgradeEarnedEvent);
+        }
+
+        public static void DispatchHammerSpeed(float speed, bool isHammerStopped = false)
+        {
+            UpdateHammerSpeedEvent updateHammerSpeedEvent = new UpdateHammerSpeedEvent()
+            {
+                Speed = speed,
+                IsHammerStopped = isHammerStopped,
+            };
+            EventService.DispatchEvent(updateHammerSpeedEvent);
+        }
+
+        public static void DispatchHammerPower(float power)
+        {
+            UpdateHammerPowerEvent updateHammerPowerEvent = new UpdateHammerPowerEvent()
+            {
+                Power = power,
+            };
+            EventService.DispatchEvent(updateHammerPowerEvent);
         }
     }
 }

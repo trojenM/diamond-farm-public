@@ -1,6 +1,9 @@
 ﻿using System;
 using DG.Tweening;
 using DorudonGames.Runtime.Component;
+using DorudonGames.Runtime.Enum;
+using DorudonGames.Runtime.EventServices;
+using DorudonGames.Runtime.EventServices.Resources.Game;
 using DorudonGames.Runtime.Manager;
 using UnityEngine;
 
@@ -19,14 +22,15 @@ namespace DorudonGames.Runtime.Controllers
 
         private void Awake()
         {
+            EventService.AddListener<UpgradeEarnedEvent>(OnUpgradeEarned);
             _max = diamonds.Length;
         }
 
         public void SpawnNextDiamond()
         {
-            _current++;
-            if (_current >= _max)
-                _current = 0;
+            //_current++;
+            //if (_current >= _max)
+              //  _current = 0;
 
             var diamond = diamonds[_current];
             diamond.gameObject.SetActive(true);
@@ -49,6 +53,14 @@ namespace DorudonGames.Runtime.Controllers
                 diamond.gameObject.SetActive(false);
                 FlowManager.Instance.NextFlow();
             });
+        }
+
+        private void OnUpgradeEarned(UpgradeEarnedEvent e)
+        {
+            if (e.UpgradeType != UpgradeType.INCOME)
+                return;
+            
+            _current = (int)e.UpgradeLevelValue;
         }
     }
 }
