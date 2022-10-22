@@ -53,8 +53,6 @@ public class UpgradeItem : MonoBehaviour
         if (!Interactable)
             return;
         
-        print("test");
-        // 1 2 3 4  
         if (GameManager.Instance.GetCreditAmount >= info.LevelsAndCosts[UpgradeLevel-1].Cost)
         {
             EventDispatchers.DispatchUpgradeEarned(UpgradeType, info.LevelsAndCosts[UpgradeLevel-1].LevelValue);

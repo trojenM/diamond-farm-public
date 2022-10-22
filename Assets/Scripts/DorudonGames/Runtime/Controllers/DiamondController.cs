@@ -19,7 +19,7 @@ namespace DorudonGames.Runtime.Controllers
         [SerializeField] private Transform destroyPosition;
         [SerializeField] private float spawnTime;
         [SerializeField] private float animationTime;
-        private int _current = 0, _max, diaLevel = 0;
+        private int _current = 0, _max, _diaLevel = 0, _spawnedLevel = 0, _spawnedIndex = 0;
 
         private void Awake()
         {
@@ -33,7 +33,9 @@ namespace DorudonGames.Runtime.Controllers
             if (_current >= _max)
                   _current = 0;
 
-            var diamond = diamondList[diaLevel].diamondItems[_current];
+            var diamond = diamondList[_diaLevel].diamondItems[_current];
+            _spawnedLevel = _diaLevel;
+            _spawnedIndex = _current;
             diamond.gameObject.SetActive(true);
             diamond.tr.position = spawnPosition.position;
             diamond.tr.DOMove(placedPosition.position, spawnTime);
@@ -41,7 +43,7 @@ namespace DorudonGames.Runtime.Controllers
 
         public void AnimateAndDestroy()
         {
-            var diamond = diamondList[diaLevel].diamondItems[_current];
+            var diamond = diamondList[_spawnedLevel].diamondItems[_spawnedIndex];
             Sequence sequence = DOTween.Sequence();
             sequence.Join(diamond.tr.DOLocalRotate(new Vector3(0, 720, 0), animationTime, RotateMode.FastBeyond360).SetRelative(true)
                 .SetEase(Ease.Linear));
@@ -61,8 +63,8 @@ namespace DorudonGames.Runtime.Controllers
             if (e.UpgradeType != UpgradeType.INCOME)
                 return;
             
-            diaLevel = (int)e.UpgradeLevelValue-1;
-            _max = diamondList[diaLevel].diamondItems.Length;
+            _diaLevel = (int)e.UpgradeLevelValue-1;
+            _max = diamondList[_diaLevel].diamondItems.Length;
             if (_current >= _max)
                 _current = 0;
         }
