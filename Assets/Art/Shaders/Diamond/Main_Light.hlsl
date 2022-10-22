@@ -16,10 +16,10 @@ void MainLight_float(in float3 WorldPos, out half3 Direction, out half3 Color, o
         half4 shadowCoord = TransformWorldToShadowCoord(WorldPos);
     #endif
 
-    #if defined(UNIVERSAL_LIHTING_INCLUDED)
+    #if defined(UNIVERSAL_LIGHTING_INCLUDED)
         Light mainLight = GetMainLight(shadowCoord);
-        Direction = mainLight = direction;
-        Color = mainlight.color;
+        Direction = mainLight.direction;
+        Color = mainLight.color;
         DistanceAtten = mainLight.distanceAttenuation;
         ShadowAtten = mainLight.shadowAttenuation;
     #endif
