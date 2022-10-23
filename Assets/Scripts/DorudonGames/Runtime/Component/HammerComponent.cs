@@ -25,7 +25,7 @@ namespace DorudonGames.Runtime.Component
         private void Awake()
         {
             EventService.AddListener<UpdateHammerSpeedEvent>(UpdateHammerSpeed);
-            EventService.AddListener<UpdateHammerPowerEvent>(UpdateHammerPower);
+            //EventService.AddListener<UpdateHammerPowerEvent>(UpdateHammerPower);
             _collider = GetComponent<Collider>();
             _startRotation = transform.localRotation;
             _endRotation = Quaternion.Euler(_startRotation.eulerAngles + new Vector3(0f, 0f, rotateDegree));
@@ -59,10 +59,10 @@ namespace DorudonGames.Runtime.Component
             _hasStopped = e.IsHammerStopped;
         }
 
-        private void UpdateHammerPower(UpdateHammerPowerEvent e)
-        {
-            damage = e.Power;
-        }
+        // private void UpdateHammerPower(UpdateHammerPowerEvent e)
+        // {
+        //     damage = e.Power;
+        // }
 
         private void OnTriggerEnter(Collider other)
         {

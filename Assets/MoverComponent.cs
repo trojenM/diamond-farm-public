@@ -1,40 +1,52 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Diagnostics.Tracing;
 using DG.Tweening;
+using DorudonGames.Runtime.Enum;
+using DorudonGames.Runtime.EventServices.Resources.Game;
+using UnityEditor.MPE;
 using UnityEngine;
+using EventService = DorudonGames.Runtime.EventServices.EventService;
 
 public class MoverComponent : MonoBehaviour
 {
-    [SerializeField] private Transform hammerParent;
-    [SerializeField] private Transform [] movementPositions;
-    private int _current=0, _max;
-    private float _cd = 0f, _interval = 3f;
-    
+    [SerializeField] private Transform [] hammerSlots;
+    [SerializeField] private GameObject[] hammers;
+    private int currentHammerIdx;
+    private int currenSlotIdx;
+
+    private void Awake()
+    {
+        EventService.AddListener<UpgradeEarnedEvent>(OnUpgradeEarned);
+    }
+
     void Start()
     {
-        _cd = _interval;
-        _max = movementPositions.Length;
-    }   
-
-    // Update is called once per frame
-    void Update()
+    }
+    
+    private void UpgradeHammer()
     {
-        _cd -= Time.deltaTime;
-            
-        if (_cd <= 0)
+        if (hammerSlots[currenSlotIdx].childCount == 0)
         {
-            _cd = _interval;
-            TriggerEvents();
+            Instantiate(hammers[currentHammerIdx], hammerSlots[currenSlotIdx]);
+        }
+        else if (hammerSlots[currenSlotIdx].childCount == 1)
+        {
+            Destroy(hammerSlots[currenSlotIdx].GetChild(0).gameObject);
+            Instantiate(hammers[currentHammerIdx], hammerSlots[currenSlotIdx]);
         }
     }
 
-    private void TriggerEvents()
+    private void OnUpgradeEarned(UpgradeEarnedEvent e)
     {
-        _current++;
-        if (_current >= _max)
-            _current = 0;
-
-        hammerParent.DOMove(movementPositions[_current].position, 0.4f);
-        hammerParent.DORotateQuaternion(movementPositions[_current].rotation, 0.4f);
+        if (e.UpgradeType != UpgradeType.POWER)
+            return;
+        
+        int remainder = ((int)e.UpgradeLevelValue) % 4;
+         currenSlotIdx = remainder;
+         currentHammerIdx = (((int)e.UpgradeLevelValue) - remainder) / 4;
+         
+         UpgradeHammer();
     }
 }

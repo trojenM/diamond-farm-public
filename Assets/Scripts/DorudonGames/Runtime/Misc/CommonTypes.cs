@@ -15,6 +15,7 @@ namespace DorudonGames.Runtime.Misc
         //SOUNDS
         public static string SFX_CLICK = "CLICK";
         public static string SFX_CURRENCY_FLY = "CURRENCY_FLY";
+        public static string SFX_UPGRADE_EARNED = "UPGRADE_EARNED";
         public static string SFX_WIN = "WIN";
         public static string SFX_LOSE = "LOSE";
 

@@ -6,6 +6,7 @@ using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices;
 using DorudonGames.Runtime.EventServices.Resources.Game;
 using DorudonGames.Runtime.Manager;
+using DorudonGames.Runtime.Misc;
 using DorudonGames.Runtime.Scriptables;
 using TMPro;
 using UnityEngine;
@@ -55,10 +56,11 @@ public class UpgradeItem : MonoBehaviour
         
         if (GameManager.Instance.GetCreditAmount >= info.LevelsAndCosts[UpgradeLevel-1].Cost)
         {
-            EventDispatchers.DispatchUpgradeEarned(UpgradeType, info.LevelsAndCosts[UpgradeLevel-1].LevelValue);
+            LevelManager.Instance.IncreaseCreditAmount(- info.LevelsAndCosts[UpgradeLevel-1].Cost);
             UpgradeLevel += 1;
             PlayerPrefs.SetInt(info.UpgradeType.ToString(), UpgradeLevel);
-            SoundManager.Instance.Play("UpgradeEarned");
+            EventDispatchers.DispatchUpgradeEarned(UpgradeType, info.LevelsAndCosts[UpgradeLevel-1].LevelValue);
+            SoundManager.Instance.Play(CommonTypes.SFX_UPGRADE_EARNED);
             UpdateButton();
         }
     }

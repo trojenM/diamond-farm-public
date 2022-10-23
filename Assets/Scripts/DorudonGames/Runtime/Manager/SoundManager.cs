@@ -37,8 +37,8 @@ namespace DorudonGames.Runtime.Manager
                 sound.Source = source;  
             }
 
-            state = PlayerPrefs.GetInt(CommonTypes.SOUND_STATE_KEY, 1) != 0;
-            ChangeActiveState(state);
+            //state = PlayerPrefs.GetInt(CommonTypes.SOUND_STATE_KEY, 1) != 0;
+            //ChangeActiveState(state);
             
             base.Awake();
         }
@@ -65,6 +65,8 @@ namespace DorudonGames.Runtime.Manager
                 return;
             }
             
+            print("test");
+            print(targetSound.Source);
             targetSound.Source.PlayOneShot(targetClip);
         }
 

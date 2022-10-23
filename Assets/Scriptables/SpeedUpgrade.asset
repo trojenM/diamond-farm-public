@@ -16,13 +16,13 @@ MonoBehaviour:
   Header: Speed Up!
   UpgradeType: 1
   LevelsAndCosts:
-  - LevelValue: 1.1
-    Cost: 100
   - LevelValue: 1.2
-    Cost: 200
-  - LevelValue: 1.3
-    Cost: 300
+    Cost: 350
   - LevelValue: 1.4
-    Cost: 400
-  - LevelValue: 1.5
-    Cost: 500
+    Cost: 800
+  - LevelValue: 1.8
+    Cost: 1500
+  - LevelValue: 2
+    Cost: 2500
+  - LevelValue: 2.2
+    Cost: 4000

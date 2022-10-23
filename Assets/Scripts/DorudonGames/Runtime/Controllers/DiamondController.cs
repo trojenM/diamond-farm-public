@@ -20,6 +20,7 @@ namespace DorudonGames.Runtime.Controllers
         [SerializeField] private float spawnTime;
         [SerializeField] private float animationTime;
         private int _current = 0, _max, _diaLevel = 0, _spawnedLevel = 0, _spawnedIndex = 0;
+        private int incomeMul;
 
         private void Awake()
         {
@@ -38,7 +39,7 @@ namespace DorudonGames.Runtime.Controllers
             _spawnedIndex = _current;
             diamond.gameObject.SetActive(true);
             diamond.tr.position = spawnPosition.position;
-            diamond.tr.DOMove(placedPosition.position, spawnTime);
+            diamond.tr.DOMove(placedPosition.position, spawnTime).SetEase(Ease.OutBounce);
         }
 
         public void AnimateAndDestroy()
@@ -50,7 +51,7 @@ namespace DorudonGames.Runtime.Controllers
             sequence.Join(diamond.tr.DOMove(destroyPosition.position, animationTime));
             sequence.OnComplete(() =>
             {
-                LevelManager.Instance.IncreaseCreditAmount(100);
+                LevelManager.Instance.IncreaseCreditAmount(100 * incomeMul);
                 InterfaceManager.Instance.FlyCurrencyFromWorld(diamond.transform.position);
                 destroyParticle.Play();
                 diamond.gameObject.SetActive(false);
@@ -64,6 +65,7 @@ namespace DorudonGames.Runtime.Controllers
                 return;
             
             _diaLevel = (int)e.UpgradeLevelValue-1;
+            incomeMul = (int)e.UpgradeLevelValue;
             _max = diamondList[_diaLevel].diamondItems.Length;
             if (_current >= _max)
                 _current = 0;

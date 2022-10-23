@@ -57,8 +57,6 @@ namespace DorudonGames.Runtime.Manager
             int newCreditAmount = GameManager.Instance.GetCreditAmount + increaseAmount;
             GameManager.Instance.SetCreditAmount(newCreditAmount);
             PlayerPrefs.SetInt(CommonTypes.CREDIT_DATA_KEY, newCreditAmount);
-            
-            SoundManager.Instance.Play("CreditIncrease");
             EventDispatchers.OnCreditUpdatedDispatcher(newCreditAmount, 0f, -1f);
         }
     }

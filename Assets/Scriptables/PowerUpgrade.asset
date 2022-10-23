@@ -16,13 +16,13 @@ MonoBehaviour:
   Header: Power Up!
   UpgradeType: 0
   LevelsAndCosts:
-  - LevelValue: 20
-    Cost: 100
-  - LevelValue: 25
-    Cost: 200
-  - LevelValue: 30
-    Cost: 300
-  - LevelValue: 35
-    Cost: 400
-  - LevelValue: 40
-    Cost: 500
+  - LevelValue: 0
+    Cost: 800
+  - LevelValue: 1
+    Cost: 1600
+  - LevelValue: 2
+    Cost: 3000
+  - LevelValue: 3
+    Cost: 6000
+  - LevelValue: 4
+    Cost: 10000
