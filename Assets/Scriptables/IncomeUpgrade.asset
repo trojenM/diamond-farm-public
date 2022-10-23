@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e506613164c0470c8616cf112500647f, type: 3}
   m_Name: IncomeUpgrade
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: a16824bf52b91884ab4616a9cfee1e0b, type: 3}
+  Icon: {fileID: 21300000, guid: cffd2f159d9f2b540889c69385d2e78a, type: 3}
   Header: Income Up!
   UpgradeType: 2
   LevelsAndCosts:

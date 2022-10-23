@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e506613164c0470c8616cf112500647f, type: 3}
   m_Name: PowerUpgrade
   m_EditorClassIdentifier: 
-  Icon: {fileID: 21300000, guid: f3cf5f0a9028e5f4491e261e7c35532b, type: 3}
+  Icon: {fileID: 21300000, guid: 1e4525b20a5f89c499c603a09d58b0cf, type: 3}
   Header: Power Up!
   UpgradeType: 0
   LevelsAndCosts:
@@ -26,3 +26,9 @@ MonoBehaviour:
     Cost: 6000
   - LevelValue: 4
     Cost: 10000
+  - LevelValue: 5
+    Cost: 12000
+  - LevelValue: 6
+    Cost: 14000
+  - LevelValue: 7
+    Cost: 16000

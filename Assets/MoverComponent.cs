@@ -15,6 +15,8 @@ public class MoverComponent : MonoBehaviour
     [SerializeField] private GameObject[] hammers;
     private int currentHammerIdx;
     private int currenSlotIdx;
+    private int upgradeLevel;
+    private bool firstRun = true;
 
     private void Awake()
     {
@@ -38,15 +40,41 @@ public class MoverComponent : MonoBehaviour
         }
     }
 
+    private void InitializeHammer()
+    {
+        for (int i = 0; i < upgradeLevel+1; i++)
+        {
+            int remainder = i % 4;
+            int hammerIdx = (i - remainder) / 4;
+            
+            if (hammerSlots[remainder].childCount == 0)
+            {
+                Instantiate(hammers[hammerIdx], hammerSlots[remainder]);
+            }
+            else if (hammerSlots[remainder].childCount == 1)
+            {
+                Destroy(hammerSlots[remainder].GetChild(0).gameObject);
+                Instantiate(hammers[hammerIdx], hammerSlots[remainder]);
+            }
+        }
+    }
+
     private void OnUpgradeEarned(UpgradeEarnedEvent e)
     {
         if (e.UpgradeType != UpgradeType.POWER)
             return;
-        
-        int remainder = ((int)e.UpgradeLevelValue) % 4;
+
+        upgradeLevel = (int)e.UpgradeLevelValue;
+        int remainder = (upgradeLevel) % 4;
          currenSlotIdx = remainder;
-         currentHammerIdx = (((int)e.UpgradeLevelValue) - remainder) / 4;
-         
-         UpgradeHammer();
+         currentHammerIdx = ((upgradeLevel) - remainder) / 4;
+
+         if (firstRun)
+         {
+             InitializeHammer();
+             firstRun = false;
+         }
+         else
+             UpgradeHammer();
     }
 }

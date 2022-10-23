@@ -1,10 +1,6 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using Codice.Client.BaseCommands;
 using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices;
-using DorudonGames.Runtime.EventServices.Resources.Game;
 using DorudonGames.Runtime.Manager;
 using DorudonGames.Runtime.Misc;
 using DorudonGames.Runtime.Scriptables;
@@ -42,7 +38,6 @@ public class UpgradeItem : MonoBehaviour
     {
         Interactable = true;
         iconImage.sprite = info.Icon;
-        iconImage.color = Color.blue;
         headerText.text = info.Header;
         UpgradeType = info.UpgradeType;
         UpgradeLevel = PlayerPrefs.GetInt(info.UpgradeType.ToString(), 1);
