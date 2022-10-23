@@ -65,8 +65,6 @@ namespace DorudonGames.Runtime.Manager
                 return;
             }
             
-            print("test");
-            print(targetSound.Source);
             targetSound.Source.PlayOneShot(targetClip);
         }
 

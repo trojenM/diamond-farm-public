@@ -1,6 +1,7 @@
 using DorudonGames.Runtime.EventServices;
 using DorudonGames.Runtime.EventServices.Resources.Game;
 using DorudonGames.Runtime.Manager;
+using DorudonGames.Runtime.Misc;
 using UnityEngine;
 
 namespace DorudonGames.Runtime.Component
@@ -105,6 +106,7 @@ namespace DorudonGames.Runtime.Component
         private void OnHammerHit()
         {
             sparkleParticle.Play();
+            SoundManager.Instance.Play(CommonTypes.SFX_HAMMER_HIT);
             SetTargetUp();
 
             RaycastHit[] hitInfo = Physics.SphereCastAll(castPosition.position, sphereRadius, castPosition.forward, 10f, layerMask,QueryTriggerInteraction.UseGlobal);
