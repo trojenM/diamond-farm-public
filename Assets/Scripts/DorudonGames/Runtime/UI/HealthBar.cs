@@ -16,15 +16,17 @@ namespace DorudonGames.Runtime.Component
         private float _currentAmount = 0f;
         private float _targetAmount = 0f;
 
-        private void LateUpdate()
+        /*private void LateUpdate()
         {
             _currentAmount = foregroundImage.fillAmount;
             foregroundImage.fillAmount = Mathf.MoveTowards(_currentAmount, _targetAmount, fillSpeed*Time.deltaTime);
-        }
+            
+        }*/
 
         public void HandleHealthChange(float pct)
         {
             _targetAmount = pct;
+            foregroundImage.fillAmount = _targetAmount;
         }
     }
 }

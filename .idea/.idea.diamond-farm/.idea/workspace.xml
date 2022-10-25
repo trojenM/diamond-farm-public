@@ -3,24 +3,35 @@
   <component name="ChangeListManager">
     <list default="true" id="35278826-d222-4c8d-9d13-e55ab56006fa" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.diamond-farm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.diamond-farm/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Necklace_Statue_1.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Necklace_Statue_1.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Necklace_Statue_1.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Necklace_Statue_1.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Necklace_Statue_2.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Necklace_Statue_2.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Necklace_Statue_2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Necklace_Statue_2.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Pendant_1.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Pendant_1.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Pendant_1.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Pendant_1.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Ring_1.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Ring_1.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Ring_1.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Ring_1.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Ring_2.fbx" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Ring_2.fbx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Ring_2.fbx.meta" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Art/Meshes/Jewelries/Ring_2.fbx.meta" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/GUI PRO Kit - Simple Casual 1/Sprite/Component/Icon_ItemIcons_(x2)/ItemIcons_(x2).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/GUI PRO Kit - Simple Casual 1/Sprite/Component/Icon_PictoIcons_(x2)/PictoIcons_(x2).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/GUI PRO Kit - Simple Casual/Sprite/Component/Icon_ItemIcons_(x2)/ItemIcons_(x2).unitypackage.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Resources/GUI PRO Kit - Simple Casual/Sprite/Component/Icon_PictoIcons_(x2)/PictoIcons_(x2).unitypackage.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/MoverComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MoverComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dev Scene 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dev Scene 2.unity" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptables/IncomeUpgrade.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptables/IncomeUpgrade.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptables/PowerUpgrade.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptables/PowerUpgrade.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scriptables/SpeedUpgrade.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptables/SpeedUpgrade.asset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Joystick.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Joystick/JoystickEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Joystick/JoystickEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Joystick/VariableJoystickEditor.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Joystick/VariableJoystickEditor.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/CircularMultipleColorGradientSkyboxGUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/CircularMultipleColorGradientSkyboxGUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/CircularTwoColorGradientSkyboxGUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/CircularTwoColorGradientSkyboxGUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/GradientObject.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/GradientObject.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/LinearMultipleColorGradientSkyboxGUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/LinearMultipleColorGradientSkyboxGUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/LinearThreeColorGradientSkyboxGUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/LinearThreeColorGradientSkyboxGUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/LinearTwoColorGradientSkyboxGUI.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/LinearTwoColorGradientSkyboxGUI.cs.meta" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/CameraLookAtComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/CameraLookAtComponent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/PieceComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/PieceComponent.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/EventServices/EventDispatchers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/EventServices/EventDispatchers.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/HammerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/HammerManager.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/UI/HealthBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/UI/HealthBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectSettings/EditorBuildSettings.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/EditorUserSettings.asset" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -39,6 +50,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/GlassComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/EventServices/Resources/BaseEvent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Runtime/Behaviours/CinemachineFreeLook.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../crazy-speed/Assets/GRAMOFON/Runtime/Scripts/Managers/VibrationManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Misc/CommonTypes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../crazy-speed/Assets/GRAMOFON/Runtime/Scripts/Managers/GameManager.cs" root0="SKIP_HIGHLIGHTING" />

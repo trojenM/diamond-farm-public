@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using DorudonGames.Runtime.Component;
 using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices;
@@ -23,6 +24,7 @@ namespace DorudonGames.Runtime.Manager
         [SerializeField] private int incrementSegment;
         //private float _cd = 0f;
         //private bool _isTriggered = false;
+        private LayerMask _uiLayer;
         private float _interval;
         private float _hammerSpeedValue;
         private float _hammerSpeedMul = 1;
@@ -32,6 +34,7 @@ namespace DorudonGames.Runtime.Manager
             base.Awake();
             EventService.AddListener<UpgradeEarnedEvent>(OnUpgradeEarned);
             _interval = decreaseInterval;
+            _uiLayer = LayerMask.NameToLayer("UI");
         }
 
         private void OnUpgradeEarned(UpgradeEarnedEvent e)
@@ -54,7 +57,7 @@ namespace DorudonGames.Runtime.Manager
             {
                 _hammerSpeedValue += 1f / incrementSegment; 
                 _interval = decreaseInterval * 4f;
-                if (!EventSystem.current.IsPointerOverGameObject())
+                if (!EventSystem.current.IsPointerOverGameObject() && !IsPointerOverUIElement())
                     EventDispatchers.DispatchHideUpgrades(true);
             }
             
@@ -64,7 +67,8 @@ namespace DorudonGames.Runtime.Manager
             {
                 _hammerSpeedValue -= 1f / incrementSegment;
                 _interval = decreaseInterval;
-                EventDispatchers.DispatchHideUpgrades(false);
+                if(!IsPointerOverUIElement())
+                    EventDispatchers.DispatchHideUpgrades(false);
             }
 
             _hammerSpeedValue = Mathf.Clamp01(_hammerSpeedValue);
@@ -74,6 +78,31 @@ namespace DorudonGames.Runtime.Manager
         public void StopHammers() { isHammerStopped = true; }
         public void StartHammers() { isHammerStopped = false; }
 
+        public bool IsPointerOverUIElement()
+        {
+            return IsPointerOverUIElement(GetEventSystemRaycastResults());
+        }
+    
+        private bool IsPointerOverUIElement(List<RaycastResult> eventSystemRaysastResults)
+        {
+            for (int index = 0; index < eventSystemRaysastResults.Count; index++)
+            {
+                RaycastResult curRaysastResult = eventSystemRaysastResults[index];
+                if (curRaysastResult.gameObject.layer == _uiLayer)
+                    return true;
+            }
+            return false;
+        }
+        
+        
+        static List<RaycastResult> GetEventSystemRaycastResults()
+        {
+            PointerEventData eventData = new PointerEventData(EventSystem.current);
+            eventData.position = Input.mousePosition;
+            List<RaycastResult> raysastResults = new List<RaycastResult>();
+            EventSystem.current.RaycastAll(eventData, raysastResults);
+            return raysastResults;
+        }
         
     }
 }

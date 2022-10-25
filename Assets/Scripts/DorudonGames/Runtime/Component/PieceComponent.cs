@@ -52,7 +52,7 @@ namespace DorudonGames.Runtime.Component
             hp -= dmg;
             _damagePosition = damagePosition;
             tr.localScale=tr.localScale - Vector3.one * scaleDownFactor;
-            float currentHealthPct = (float)hp / (float)_fullHp;
+            float currentHealthPct = hp/_fullHp;
             HealthBar.Instance.HandleHealthChange(currentHealthPct);
             CheckDeath();
         }

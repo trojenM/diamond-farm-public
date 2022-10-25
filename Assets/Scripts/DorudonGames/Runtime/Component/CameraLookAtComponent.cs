@@ -8,6 +8,9 @@ namespace DorudonGames.Runtime.Component
     {
         [SerializeField] private float rotateSpeed;
         [SerializeField] private bool rotateable;
+        private float _interval = .12f;
+        private float _cd = 0;
+        private bool _isHolding = false;
     
         private CinemachineFreeLook _cineMachineFreeLook;
 
@@ -35,8 +38,27 @@ namespace DorudonGames.Runtime.Component
                 _cineMachineFreeLook.m_XAxis.m_InputAxisValue = 0;
                 return;
             }
-        
-            _cineMachineFreeLook.m_XAxis.m_InputAxisValue = TouchManager.Instance.GetTouchDirection().x * rotateSpeed;
+
+            if (Input.GetMouseButtonDown(0))
+            {
+                _cd = _interval;
+                _isHolding = true;
+            }
+            
+            if (_isHolding)
+            {
+                _cd -= Time.deltaTime;
+                
+                if (Input.GetMouseButtonUp(0))
+                {
+                    _isHolding = false;
+                }
+
+                if (_cd <= 0)
+                {
+                    _cineMachineFreeLook.m_XAxis.m_InputAxisValue = TouchManager.Instance.GetTouchDirection().x * rotateSpeed;
+                }
+            }
         }
     }
 }

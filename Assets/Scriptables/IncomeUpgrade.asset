@@ -17,12 +17,12 @@ MonoBehaviour:
   UpgradeType: 2
   LevelsAndCosts:
   - LevelValue: 1
-    Cost: 1200
+    Cost: 900
   - LevelValue: 2
-    Cost: 3200
+    Cost: 2400
   - LevelValue: 3
-    Cost: 6400
+    Cost: 4800
   - LevelValue: 4
-    Cost: 12800
+    Cost: 9600
   - LevelValue: 5
-    Cost: 25600
+    Cost: 19200
