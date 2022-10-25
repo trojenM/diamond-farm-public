@@ -17,7 +17,7 @@ namespace DorudonGames.Runtime.Component
         [SerializeField] private float rotateDegree;
         [SerializeField] private float rotationDistance = 0.025f;
         [SerializeField] private float damage = 15f;
-        private Quaternion _startRotation, _endRotation; 
+        private Quaternion _startRotation, _endRotation;
         private Quaternion _targetRotation;
         private bool _rotateDown = true;
         private bool _hasStopped = false;
@@ -41,18 +41,18 @@ namespace DorudonGames.Runtime.Component
             {
                 if (!_hasStoppedSwitch)
                     StartHammer();
-                else 
+                else
                     StopHammer();
-                
+
                 _hasStoppedSwitch = !_hasStoppedSwitch;
             }
-            
+
             if (!_hasStopped)
             {
                 if (RotationDistance(transform.localRotation, _targetRotation, rotationDistance))
                     SwapTargetRotation();
             }
-            
+
             RotateHammer();
         }
 
@@ -65,15 +65,15 @@ namespace DorudonGames.Runtime.Component
         private void OnTriggerEnter(Collider other)
         {
             if (!other.GetComponent<PieceComponent>()) return;
-            
+
             OnHammerHit();
         }
 
         private void RotateHammer()
         {
-            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, _targetRotation,_hammerSpeed * Time.deltaTime);
+            transform.localRotation = Quaternion.RotateTowards(transform.localRotation, _targetRotation, _hammerSpeed * Time.deltaTime);
         }
-        
+
         private void SwapTargetRotation()
         {
             if (_rotateDown)
@@ -107,17 +107,12 @@ namespace DorudonGames.Runtime.Component
             LevelManager.Instance.IncreaseCreditAmount((int)damage);
             InterfaceManager.Instance.FlyCurrencyTextFromWorld(castPosition.position, (int)damage);
             SetTargetUp();
-
-            RaycastHit[] hitInfo = Physics.SphereCastAll(castPosition.position, sphereRadius, castPosition.forward, 10f, layerMask,QueryTriggerInteraction.UseGlobal);
-            
-            foreach (var hit in hitInfo)
-            {
-                if (hit.transform.TryGetComponent(out PieceComponent piece))
-                {
-                    piece.TakeDamage(damage,castPosition.position);
-                }
-            }
+            EventDispatchers.DispatchOnHammerHit(damage , castPosition);
         }
+       
+
+       
+       
 
         private void StartHammer()
         {

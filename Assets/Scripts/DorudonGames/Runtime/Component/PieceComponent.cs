@@ -1,7 +1,13 @@
 using DorudonGames.Runtime.Manager;
 using UnityEngine;
 using System;
+using DorudonGames.Runtime.EventServices.Resources;
+using System.Collections;
+using System.Collections.Generic;
+using DorudonGames.Runtime.EventServices;
+
 namespace DorudonGames.Runtime.Component
+
 {
     public class PieceComponent : MonoBehaviour
     {
@@ -22,6 +28,7 @@ namespace DorudonGames.Runtime.Component
       
         private void Awake()
         {
+            EventService.AddListener<OnHammerHitEvent>(Damage);
             rb = GetComponent<Rigidbody>();
             _collider = GetComponent<Collider>();
             _meshRenderer = GetComponent<MeshRenderer>();
@@ -35,7 +42,12 @@ namespace DorudonGames.Runtime.Component
             _startScale = tr.localScale;
         }
 
-        public void TakeDamage(float dmg, Vector3 damagePosition)
+        private void Damage(OnHammerHitEvent e)
+        {
+            TakeDamage(e.Damage , e.Pos.position);
+        }
+
+        public void TakeDamage(float dmg , Vector3 damagePosition)
         {
             hp -= dmg;
             _damagePosition = damagePosition;

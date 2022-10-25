@@ -1,6 +1,7 @@
 ﻿using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices.Resources.Game;
 using PlasticPipe.Server;
+using UnityEngine;
 
 namespace DorudonGames.Runtime.EventServices
 {
@@ -61,5 +62,16 @@ namespace DorudonGames.Runtime.EventServices
             
             beforeHideState = isHide;
         }
+        public static void DispatchOnHammerHit(float damage , Transform castPosition )
+        {
+            OnHammerHitEvent onHammerHitEvent = new OnHammerHitEvent()
+            {
+                Damage = damage,
+                Pos = castPosition 
+
+            };
+            EventService.DispatchEvent(onHammerHitEvent);
+        }
+       
     }
 }
