@@ -17,6 +17,7 @@
     <setting file="file://$PROJECT_DIR$/Assets/MoverComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/BaseComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/GlassComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/RenderHammerComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/DorudonUtils.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/EventServices/EventService.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/EventServices/Resources/BaseEvent.cs" root0="FORCE_HIGHLIGHTING" />
@@ -29,13 +30,17 @@
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/TouchManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/VibrationManager.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Misc/CommonTypes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Misc/GameobjectRotator.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Editor/Utility/ReflectionHelpers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Editor/Utility/VcamStageEditor.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Runtime/Behaviours/CinemachineFreeLook.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.7/Editor/Drawing/PreviewManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Framework/Control/Sequence.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../scare-vampires/Assets/GRAMOFON/Runtime/Scripts/Services/Error/ErrorService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Desktop/Github Projects/crazy-speed/Assets/GRAMOFON/Runtime/Scripts/Managers/InterfaceManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Desktop/Github Projects/crazy-speed/Assets/Scripts/Controllers/LocomotivesController.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$USER_HOME$/Desktop/Github Projects/crazy-speed/Assets/Scripts/Controllers/SplinesController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Desktop/Github Projects/scare-vampires/Assets/GRAMOFON/Runtime/Scripts/Managers/InterfaceManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -102,7 +107,9 @@
       <workItem from="1666340041580" duration="15962000" />
       <workItem from="1666452968241" duration="1525000" />
       <workItem from="1666519429036" duration="11376000" />
-      <workItem from="1666541415793" duration="4926000" />
+      <workItem from="1666541415793" duration="5026000" />
+      <workItem from="1666644247720" duration="956000" />
+      <workItem from="1666645424135" duration="16581000" />
     </task>
     <servers />
   </component>

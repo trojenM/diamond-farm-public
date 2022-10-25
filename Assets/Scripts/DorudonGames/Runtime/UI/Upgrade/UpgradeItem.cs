@@ -1,6 +1,8 @@
 using System;
+using DG.Tweening;
 using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices;
+using DorudonGames.Runtime.EventServices.Resources.Game;
 using DorudonGames.Runtime.Manager;
 using DorudonGames.Runtime.Misc;
 using DorudonGames.Runtime.Scriptables;
@@ -19,19 +21,34 @@ public class UpgradeItem : MonoBehaviour
     protected UpgradeType UpgradeType;
     protected int UpgradeLevel;
     protected bool Interactable;
+    protected RectTransform RectTr;
+    protected float DefaultAnchorY;
 
-    
+
     public void SetInteractable(bool x) => Interactable = x;
     public bool GetInteractable => Interactable;
 
     protected void Awake()
     {
         Initialize();
+        EventService.AddListener<HideUpgradesEvent>(OnHideUpgradesEvent);
     }
 
     private void Start()
     {
         EventDispatchers.DispatchUpgradeEarned(UpgradeType, info.LevelsAndCosts[UpgradeLevel-1].LevelValue);
+    }
+
+    public void OnHideUpgradesEvent(HideUpgradesEvent e)
+    {
+        if (e.IsHide)
+        {
+            RectTr.DOAnchorPosY(DefaultAnchorY - 750f, 0.5f);
+        }
+        else
+        {
+            RectTr.DOAnchorPosY(DefaultAnchorY, 0.5f);
+        }
     }
 
     private void Initialize()
@@ -40,6 +57,8 @@ public class UpgradeItem : MonoBehaviour
         iconImage.sprite = info.Icon;
         headerText.text = info.Header;
         UpgradeType = info.UpgradeType;
+        RectTr = GetComponent<RectTransform>();
+        DefaultAnchorY = RectTr.anchoredPosition.y;
         UpgradeLevel = PlayerPrefs.GetInt(info.UpgradeType.ToString(), 1);
         UpdateButton();
     }

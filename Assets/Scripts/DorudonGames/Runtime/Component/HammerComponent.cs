@@ -1,3 +1,4 @@
+using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices;
 using DorudonGames.Runtime.EventServices.Resources.Game;
 using DorudonGames.Runtime.Manager;
@@ -9,6 +10,7 @@ namespace DorudonGames.Runtime.Component
     public class HammerComponent : MonoBehaviour
     {
         [SerializeField] private ParticleSystem sparkleParticle;
+        [SerializeField] private ParticleSystem spawnParticle;
         [SerializeField] private LayerMask layerMask;
         [SerializeField] private Transform castPosition;
         [SerializeField] private float sphereRadius;
@@ -22,11 +24,11 @@ namespace DorudonGames.Runtime.Component
         private bool _hasStoppedSwitch = false;
         private Collider _collider;
         private float _hammerSpeed;
+        private int incomeMul;
 
         private void Awake()
         {
             EventService.AddListener<UpdateHammerSpeedEvent>(UpdateHammerSpeed);
-            //EventService.AddListener<UpdateHammerPowerEvent>(UpdateHammerPower);
             _collider = GetComponent<Collider>();
             _startRotation = transform.localRotation;
             _endRotation = Quaternion.Euler(_startRotation.eulerAngles + new Vector3(0f, 0f, rotateDegree));
@@ -59,11 +61,6 @@ namespace DorudonGames.Runtime.Component
             _hammerSpeed = e.Speed;
             _hasStopped = e.IsHammerStopped;
         }
-
-        // private void UpdateHammerPower(UpdateHammerPowerEvent e)
-        // {
-        //     damage = e.Power;
-        // }
 
         private void OnTriggerEnter(Collider other)
         {
@@ -107,6 +104,8 @@ namespace DorudonGames.Runtime.Component
         {
             sparkleParticle.Play();
             SoundManager.Instance.Play(CommonTypes.SFX_HAMMER_HIT);
+            LevelManager.Instance.IncreaseCreditAmount((int)damage);
+            InterfaceManager.Instance.FlyCurrencyTextFromWorld(castPosition.position, (int)damage);
             SetTargetUp();
 
             RaycastHit[] hitInfo = Physics.SphereCastAll(castPosition.position, sphereRadius, castPosition.forward, 10f, layerMask,QueryTriggerInteraction.UseGlobal);
@@ -138,6 +137,11 @@ namespace DorudonGames.Runtime.Component
 
         public bool RotationDistance(Quaternion value, Quaternion about, float range) {
             return Quaternion.Dot(value,about) > 1f-range;
+        }
+
+        public void PlaySpawnParticle()
+        {
+            spawnParticle.Play();
         }
         
         void OnDrawGizmos()

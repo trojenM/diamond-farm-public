@@ -1,10 +1,13 @@
 ﻿using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices.Resources.Game;
+using PlasticPipe.Server;
 
 namespace DorudonGames.Runtime.EventServices
 {
     public static class EventDispatchers
     {
+        private static bool beforeHideState = true;
+        
         public static void OnCreditUpdatedDispatcher(int credit, float uiDelay, float uiDuration)
         {
             CreditUpdatedEvent creditUpdatedEvent = new CreditUpdatedEvent()
@@ -43,6 +46,20 @@ namespace DorudonGames.Runtime.EventServices
                 Power = power,
             };
             EventService.DispatchEvent(updateHammerPowerEvent);
+        }
+
+        public static void DispatchHideUpgrades(bool isHide)
+        {
+            if (beforeHideState == isHide)
+                return;
+            
+            HideUpgradesEvent hideUpgradesEvent = new HideUpgradesEvent()
+            {
+                IsHide = isHide,
+            };
+            EventService.DispatchEvent(hideUpgradesEvent);
+            
+            beforeHideState = isHide;
         }
     }
 }

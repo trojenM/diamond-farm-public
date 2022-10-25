@@ -1,12 +1,15 @@
  using System;
  using DG.Tweening;
+ using DorudonGames.Runtime.Component;
  using DorudonGames.Runtime.EventServices;
  using DorudonGames.Runtime.EventServices.Resources.Game;
  using DorudonGames.Runtime.Manager;
  using DorudonGames.Runtime.Misc;
+ using DorudonGames.Runtime.UI;
  using UnityEngine;
  using MoreMountains.NiceVibrations;
  using TMPro;
+ using Random = UnityEngine.Random;
 
  namespace DorudonGames.Runtime.Manager
  {
@@ -16,26 +19,29 @@
          [SerializeField] private RectTransform canvas;
          [SerializeField] private RectTransform chargeSlot;
          [SerializeField] private RectTransform creditSlot;
-         [SerializeField] private RectTransform floatingSlot;
          
          [Header("Texts")] 
          [SerializeField] private TMP_Text creditText;
 
-         [Header("Canvas Groups")] 
-         [SerializeField] private CanvasGroup menuCanvasGroup;
-         [SerializeField] private CanvasGroup gameCanvasGroup;
-         [SerializeField] private CanvasGroup commonCanvasGroup;
-         [SerializeField] private CanvasGroup settingsCanvasGroup;
-         
          [Header("Prefabs")] 
          [SerializeField] private RectTransform chargePrefab;
          [SerializeField] private RectTransform creditPrefab;
+         [SerializeField] private TMP_Text creditTextPrefab;
+
+         [SerializeField] private RenderHammerComponent renderHammer;
+         [SerializeField] private NewHammerAchievedUI newHammerAchievedUI;
 
 
          protected override void Awake()
          {
              base.Awake();
              EventService.AddListener<CreditUpdatedEvent>(OnCreditUpdated);
+         }
+
+         public void ActivateNewHammerAchievedScreen(int hammerIdx)
+         {
+             renderHammer.SwitchHammer(hammerIdx);
+             newHammerAchievedUI.ShowNewHammerUIPanel();
          }
 
          /// <summary>
@@ -120,6 +126,56 @@
              sequence.Play();
             
              SoundManager.Instance.Play(CommonTypes.SFX_CURRENCY_FLY);
+             VibrationManager.Instance.Haptic(HapticTypes.Success);
+         }
+         
+         // public void FlyCurrencyTextFromScreen(Vector3 screenPosition, int amount)
+         // {
+         //     Vector3 targetScreenPosition = canvas.InverseTransformPoint(creditSlot.position);
+         //        
+         //     TMP_Text createdCurrency = Instantiate(creditTextPrefab, canvas);
+         //     createdCurrency.text = "+" + amount;
+         //     createdCurrency.rectTransform.anchoredPosition = screenPosition + new Vector3(Random.Range(-100, 100), Random.Range(-100, 100), 0);
+         //    
+         //     Sequence sequence = DOTween.Sequence();
+         //
+         //     sequence.Append(createdCurrency.rectTransform.DOScale(0f, .7f));
+         //     sequence.Join(createdCurrency.transform.DOLocalMove(screenPosition + Vector3.up * 175f, .7F));
+         //
+         //     sequence.OnComplete(() =>
+         //     {
+         //         Destroy(createdCurrency.gameObject);
+         //     });
+         //
+         //     sequence.Play();
+         //    
+         //     SoundManager.Instance.Play(CommonTypes.SFX_CURRENCY_FLY);
+         //     VibrationManager.Instance.Haptic(HapticTypes.Success);
+         // }
+         
+         public void FlyCurrencyTextFromWorld(Vector3 worldPosition, int amount)
+         {
+             Camera targetCamera = CameraManager.Instance.GetCamera();
+             Vector3 screenPosition = GameUtils.WorldToCanvasPosition(canvas, targetCamera, worldPosition);
+             //Vector3 targetScreenPosition = m_canvas.InverseTransformPoint(m_currencySlot.position);
+                
+             TMP_Text createdCurrency = Instantiate(creditTextPrefab, canvas);
+             createdCurrency.text = "+" + amount;
+             createdCurrency.rectTransform.anchoredPosition = screenPosition;
+            
+            
+             Sequence sequence = DOTween.Sequence();
+
+             sequence.Append(createdCurrency.rectTransform.DOScale(0f, .7f));
+             sequence.Join(createdCurrency.transform.DOLocalMove(screenPosition + Vector3.up * 175f, .7F));
+            
+             sequence.OnComplete(() =>
+             {
+                 Destroy(createdCurrency.gameObject);
+             });
+
+             sequence.Play();
+
              VibrationManager.Instance.Haptic(HapticTypes.Success);
          }
          

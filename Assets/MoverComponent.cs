@@ -3,8 +3,10 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Diagnostics.Tracing;
 using DG.Tweening;
+using DorudonGames.Runtime.Component;
 using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices.Resources.Game;
+using DorudonGames.Runtime.Manager;
 using UnityEditor.MPE;
 using UnityEngine;
 using EventService = DorudonGames.Runtime.EventServices.EventService;
@@ -31,31 +33,27 @@ public class MoverComponent : MonoBehaviour
     {
         if (hammerSlots[currenSlotIdx].childCount == 0)
         {
-            Instantiate(hammers[currentHammerIdx], hammerSlots[currenSlotIdx]);
+             var hammer = Instantiate(hammers[currentHammerIdx], hammerSlots[currenSlotIdx]);
+             hammer.GetComponentInChildren<HammerComponent>().PlaySpawnParticle();
         }
         else if (hammerSlots[currenSlotIdx].childCount == 1)
         {
             Destroy(hammerSlots[currenSlotIdx].GetChild(0).gameObject);
-            Instantiate(hammers[currentHammerIdx], hammerSlots[currenSlotIdx]);
+            var hammer = Instantiate(hammers[currentHammerIdx], hammerSlots[currenSlotIdx]);
+            hammer.GetComponentInChildren<HammerComponent>().PlaySpawnParticle();
         }
     }
 
     private void InitializeHammer()
     {
-        for (int i = 0; i < upgradeLevel+1; i++)
+        for (int i = 0; i < 4; i++)
         {
-            int remainder = i % 4;
-            int hammerIdx = (i - remainder) / 4;
-            
-            if (hammerSlots[remainder].childCount == 0)
-            {
-                Instantiate(hammers[hammerIdx], hammerSlots[remainder]);
-            }
-            else if (hammerSlots[remainder].childCount == 1)
-            {
-                Destroy(hammerSlots[remainder].GetChild(0).gameObject);
-                Instantiate(hammers[hammerIdx], hammerSlots[remainder]);
-            }
+            if (upgradeLevel - i <= -1)
+                return;
+
+            int remainder = (upgradeLevel - i) % 4;
+            int hammerIdx = ((upgradeLevel - i) - remainder) / 4;
+            Instantiate(hammers[hammerIdx], hammerSlots[remainder]);
         }
     }
 
@@ -75,6 +73,11 @@ public class MoverComponent : MonoBehaviour
              firstRun = false;
          }
          else
+         {
+             if (remainder == 0)
+                 InterfaceManager.Instance.ActivateNewHammerAchievedScreen(currentHammerIdx - 1);
+             
              UpgradeHammer();
+         }
     }
 }

@@ -5,6 +5,7 @@ using DorudonGames.Runtime.EventServices.Resources.Game;
 using DorudonGames.Runtime.Misc;
 using DorudonGames.Runtime.Scriptables;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 namespace DorudonGames.Runtime.Manager
 {
@@ -53,6 +54,8 @@ namespace DorudonGames.Runtime.Manager
             {
                 _hammerSpeedValue += 1f / incrementSegment; 
                 _interval = decreaseInterval * 4f;
+                if (!EventSystem.current.IsPointerOverGameObject())
+                    EventDispatchers.DispatchHideUpgrades(true);
             }
             
             _interval -= Time.deltaTime;
@@ -61,6 +64,7 @@ namespace DorudonGames.Runtime.Manager
             {
                 _hammerSpeedValue -= 1f / incrementSegment;
                 _interval = decreaseInterval;
+                EventDispatchers.DispatchHideUpgrades(false);
             }
 
             _hammerSpeedValue = Mathf.Clamp01(_hammerSpeedValue);

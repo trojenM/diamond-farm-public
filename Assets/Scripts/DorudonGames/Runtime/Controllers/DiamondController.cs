@@ -6,6 +6,7 @@ using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices;
 using DorudonGames.Runtime.EventServices.Resources.Game;
 using DorudonGames.Runtime.Manager;
+using DorudonGames.Runtime.Misc;
 using UnityEngine;
 
 namespace DorudonGames.Runtime.Controllers
@@ -52,7 +53,8 @@ namespace DorudonGames.Runtime.Controllers
             sequence.OnComplete(() =>
             {
                 LevelManager.Instance.IncreaseCreditAmount(100 * incomeMul);
-                InterfaceManager.Instance.FlyCurrencyFromWorld(diamond.transform.position);
+                SoundManager.Instance.Play(CommonTypes.SFX_DIAMOND_DESTROY);
+                InterfaceManager.Instance.FlyCurrencyTextFromWorld(diamond.transform.position, 100 * incomeMul);
                 destroyParticle.Play();
                 diamond.gameObject.SetActive(false);
                 FlowManager.Instance.NextFlow();
