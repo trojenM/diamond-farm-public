@@ -10230,8 +10230,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 832111a69a129d0409973a66b9e4b045, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_isPersistant: 0
   foregroundImage: {fileID: 1755777675}
-  _duration: 1
+  _duration: 2
 --- !u!114 &335001628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -68354,7 +68355,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9126619150545761315, guid: 6e92e44fadf87d74caf89bc60f5602a9, type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.793
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9126619150545761315, guid: 6e92e44fadf87d74caf89bc60f5602a9, type: 3}
       propertyPath: m_AnchorMax.y
@@ -68454,11 +68455,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9126619151086687236, guid: 6e92e44fadf87d74caf89bc60f5602a9, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -564
+      value: -321
       objectReference: {fileID: 0}
     - target: {fileID: 9126619151086687236, guid: 6e92e44fadf87d74caf89bc60f5602a9, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 434
+      value: 826
       objectReference: {fileID: 0}
     - target: {fileID: 9126619151086687236, guid: 6e92e44fadf87d74caf89bc60f5602a9, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -68472,9 +68473,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 9126619151086687237, guid: 6e92e44fadf87d74caf89bc60f5602a9, type: 3}
+    - target: {fileID: 0}
       propertyPath: m_Value
-      value: 7.93
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 9126619151728388074, guid: 6e92e44fadf87d74caf89bc60f5602a9, type: 3}
       propertyPath: m_textAlignment
@@ -68500,8 +68501,7 @@ PrefabInstance:
       propertyPath: m_HorizontalAlignment
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 9126619151086687237, guid: 6e92e44fadf87d74caf89bc60f5602a9, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6e92e44fadf87d74caf89bc60f5602a9, type: 3}
 --- !u!224 &1755777673 stripped
 RectTransform:
