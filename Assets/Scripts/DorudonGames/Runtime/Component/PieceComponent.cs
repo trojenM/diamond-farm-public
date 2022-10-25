@@ -1,6 +1,6 @@
 using DorudonGames.Runtime.Manager;
 using UnityEngine;
-
+using System;
 namespace DorudonGames.Runtime.Component
 {
     public class PieceComponent : MonoBehaviour
@@ -19,7 +19,7 @@ namespace DorudonGames.Runtime.Component
         private Vector3 _startPosition, _startScale;
         private Quaternion _startRotation;
         private float _fullHp;
-    
+      
         private void Awake()
         {
             rb = GetComponent<Rigidbody>();
@@ -40,6 +40,8 @@ namespace DorudonGames.Runtime.Component
             hp -= dmg;
             _damagePosition = damagePosition;
             tr.localScale=tr.localScale - Vector3.one * scaleDownFactor;
+            float currentHealthPct = (float)hp / (float)_fullHp;
+            HealthBar.Instance.HandleHealthChange(currentHealthPct);
             CheckDeath();
         }
 
