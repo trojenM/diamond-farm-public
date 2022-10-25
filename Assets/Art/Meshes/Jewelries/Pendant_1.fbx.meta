@@ -3,7 +3,17 @@ guid: a005accbf5a316d47ace47c54c1ad9d5
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Diamond_Farm_General
+    second: {fileID: 2100000, guid: 87f3c1b32101ee14d89ce1b1dafbfc05, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pendan_Diamond_1_Mat
+    second: {fileID: 2100000, guid: 00a5ee5b72ecc224aae5d0bcccc37beb, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

@@ -12,13 +12,19 @@ namespace DorudonGames.Runtime.Component
     public class HealthBar : Singleton <HealthBar>
     {
         [SerializeField] private Image foregroundImage;
-        [SerializeField] private float _duration;
-        
+        [SerializeField] private float fillSpeed = 5f;
+        private float _currentAmount = 0f;
+        private float _targetAmount = 0f;
 
-       
+        private void LateUpdate()
+        {
+            _currentAmount = foregroundImage.fillAmount;
+            foregroundImage.fillAmount = Mathf.MoveTowards(_currentAmount, _targetAmount, fillSpeed*Time.deltaTime);
+        }
+
         public void HandleHealthChange(float pct)
         {
-            foregroundImage.DOFillAmount(pct, _duration);
+            _targetAmount = pct;
         }
     }
 }
