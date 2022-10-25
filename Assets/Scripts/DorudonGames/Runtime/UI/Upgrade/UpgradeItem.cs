@@ -26,7 +26,7 @@ public class UpgradeItem : MonoBehaviour
     protected RectTransform RectTr;
     protected float DefaultAnchorY;
 
-
+    Image image;
     public void SetInteractable(bool x) => Interactable = x;
     public bool GetInteractable => Interactable;
 
@@ -38,17 +38,18 @@ public class UpgradeItem : MonoBehaviour
 
     private void Start()
     {
+        image = gameObject.GetComponentInChildren<Image>();
         EventDispatchers.DispatchUpgradeEarned(UpgradeType, info.LevelsAndCosts[UpgradeLevel-1].LevelValue);
     }
     private void Update()
     {
         if(GameManager.Instance.GetCreditAmount < info.LevelsAndCosts[UpgradeLevel - 1].Cost)
         {
-            gameObject.GetComponentInChildren<Image>().sprite = inactiveSprite;
+            image.sprite = inactiveSprite;
         }
         else
         {
-            gameObject.GetComponentInChildren<Image>().sprite = activeSprite;
+            image.sprite = activeSprite;
         }
     }
 
