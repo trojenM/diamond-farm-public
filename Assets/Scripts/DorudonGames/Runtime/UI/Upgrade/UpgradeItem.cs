@@ -17,7 +17,9 @@ public class UpgradeItem : MonoBehaviour
     [SerializeField] private TMP_Text headerText;
     [SerializeField] private TMP_Text reqText;
     [SerializeField] private Image iconImage;
-    
+    [SerializeField] private Sprite inactiveSprite;
+    [SerializeField] private Sprite activeSprite;
+
     protected UpgradeType UpgradeType;
     protected int UpgradeLevel;
     protected bool Interactable;
@@ -37,6 +39,17 @@ public class UpgradeItem : MonoBehaviour
     private void Start()
     {
         EventDispatchers.DispatchUpgradeEarned(UpgradeType, info.LevelsAndCosts[UpgradeLevel-1].LevelValue);
+    }
+    private void Update()
+    {
+        if(GameManager.Instance.GetCreditAmount < info.LevelsAndCosts[UpgradeLevel - 1].Cost)
+        {
+            gameObject.GetComponentInChildren<Image>().sprite = inactiveSprite;
+        }
+        else
+        {
+            gameObject.GetComponentInChildren<Image>().sprite = activeSprite;
+        }
     }
 
     public void OnHideUpgradesEvent(HideUpgradesEvent e)
@@ -77,6 +90,7 @@ public class UpgradeItem : MonoBehaviour
             SoundManager.Instance.Play(CommonTypes.SFX_UPGRADE_EARNED);
             UpdateButton();
         }
+        
     }
 
     private void UpdateButton()
