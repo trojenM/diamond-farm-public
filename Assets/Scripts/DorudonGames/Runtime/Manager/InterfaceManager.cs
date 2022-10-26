@@ -31,6 +31,7 @@
 
          [SerializeField] private RenderHammerComponent renderHammer;
          [SerializeField] private NewHammerAchievedUI newHammerAchievedUI;
+         [SerializeField] private NewDiamondAchievedUI newDiamondAchievedUI;
 
 
          protected override void Awake()
@@ -43,6 +44,12 @@
          {
              renderHammer.SwitchHammer(hammerIdx);
              newHammerAchievedUI.ShowNewHammerUIPanel();
+         }
+
+         public void ActivateNewDiamondAchievedScreen(int diamondLvl, int diamondIdx)
+         {
+             renderHammer.SwitchDiamond(diamondLvl, diamondIdx);
+             newDiamondAchievedUI.ShowNewDiamondUIPanel();
          }
 
          /// <summary>
@@ -73,7 +80,7 @@
              sequence.Play();
             
              SoundManager.Instance.Play("CreditIncrease");
-             VibrationManager.Instance.Haptic(HapticTypes.Success);
+             VibrationManager.Instance.Haptic(HapticTypes.LightImpact);
          }
          
          /// <summary>
@@ -101,7 +108,7 @@
              sequence.Play();
             
              SoundManager.Instance.Play(CommonTypes.SFX_CURRENCY_FLY);
-             VibrationManager.Instance.Haptic(HapticTypes.Success);
+             VibrationManager.Instance.Haptic(HapticTypes.LightImpact);
          }
          
          /// <summary>
@@ -127,7 +134,7 @@
              sequence.Play();
             
              SoundManager.Instance.Play(CommonTypes.SFX_CURRENCY_FLY);
-             VibrationManager.Instance.Haptic(HapticTypes.Success);
+             VibrationManager.Instance.Haptic(HapticTypes.LightImpact);
          }
          
          // public void FlyCurrencyTextFromScreen(Vector3 screenPosition, int amount)
@@ -177,7 +184,7 @@
 
              sequence.Play();
 
-             VibrationManager.Instance.Haptic(HapticTypes.Success);
+             VibrationManager.Instance.Haptic(HapticTypes.LightImpact);
          }
          
          /// <summary>

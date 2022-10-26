@@ -17,7 +17,7 @@ public class MoverComponent : MonoBehaviour
     private int currentHammerIdx;
     private int currenSlotIdx;
     private int upgradeLevel;
-    private bool firstRun = true;
+    private bool firstRun;
 
     private void Awake()
     {
@@ -27,7 +27,7 @@ public class MoverComponent : MonoBehaviour
     void Start()
     {
     }
-    
+
     private void UpgradeHammer()
     {
         if (hammerSlots[currenSlotIdx].childCount == 0)
@@ -43,12 +43,15 @@ public class MoverComponent : MonoBehaviour
         }
     }
 
-    private void InitializeHammer()
+    public void InitializeHammer()
     {
         for (int i = 0; i < 4; i++)
         {
             if (upgradeLevel - i <= -1)
+            {
+                firstRun = true;
                 return;
+            }
 
             int remainder = (upgradeLevel - i) % 4;
             int hammerIdx = ((upgradeLevel - i) - remainder) / 4;
@@ -68,15 +71,26 @@ public class MoverComponent : MonoBehaviour
 
          if (firstRun)
          {
-             InitializeHammer();
-             firstRun = false;
-         }
-         else
-         {
+             print("test");
+             
              if (remainder == 0)
                  InterfaceManager.Instance.ActivateNewHammerAchievedScreen(currentHammerIdx - 1);
              
              UpgradeHammer();
          }
+         
+         
+         // if (firstRun)
+         // {
+         //     InitializeHammer();
+         //     firstRun = false;
+         // }
+         // else
+         // {
+         //     if (remainder == 0)
+         //         InterfaceManager.Instance.ActivateNewHammerAchievedScreen(currentHammerIdx - 1);
+         //     
+         //     UpgradeHammer();
+         // }
     }
 }

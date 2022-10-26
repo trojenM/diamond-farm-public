@@ -43,6 +43,7 @@ namespace DorudonGames.Runtime.Manager
             glass.ResetGlass();
             glass.gameObject.SetActive(true);
             glass.tr.position = spawnPosition.position;
+            HealthBar.Instance.HandleHealthChangeAnim(glass.GetFirstPieceHealthPercentage());
             glass.tr.DOMove(placedPosition.position, spawnTime).SetEase(Ease.OutBounce).OnComplete(() => HammerManager.Instance.StartHammers());
         }
 

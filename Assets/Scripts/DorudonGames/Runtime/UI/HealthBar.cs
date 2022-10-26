@@ -4,7 +4,6 @@ using UnityEngine;
 using System;
 using UnityEngine.UI;
 using DG.Tweening;
-using DorudonGames.Runtime.EventServices;
 using DorudonGames.Runtime.Misc;
 
 namespace DorudonGames.Runtime.Component
@@ -15,6 +14,9 @@ namespace DorudonGames.Runtime.Component
         [SerializeField] private float fillSpeed = 5f;
         private float _currentAmount = 0f;
         private float _targetAmount = 0f;
+        private Color startColor, endColor;
+        [SerializeField] private string startColorCode;
+        [SerializeField] private string endColorCode;
 
         /*private void LateUpdate()
         {
@@ -23,10 +25,38 @@ namespace DorudonGames.Runtime.Component
             
         }*/
 
+        protected override void Awake()
+        {
+            startColor = HexToColor(startColorCode);
+            endColor = HexToColor(endColorCode);
+            
+            base.Awake();
+        }
+
         public void HandleHealthChange(float pct)
         {
             _targetAmount = pct;
             foregroundImage.fillAmount = _targetAmount;
+            foregroundImage.color = Color.Lerp(startColor, endColor, _targetAmount);
+        }
+
+        public void HandleHealthChangeAnim(float pct)
+        {
+            _targetAmount = pct;
+            foregroundImage.DOFillAmount(_targetAmount, 0.75f);
+            foregroundImage.DOColor(endColor, 0.75f);
+
+        }
+
+        private Color HexToColor(string htmlValue)
+        {
+            Color color;
+            if (ColorUtility.TryParseHtmlString(htmlValue, out color))
+            {
+                return color;
+            }
+            
+            return Color.white;
         }
     }
 }
