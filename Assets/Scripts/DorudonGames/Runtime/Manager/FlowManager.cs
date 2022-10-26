@@ -14,7 +14,7 @@ namespace DorudonGames.Runtime.Manager
         
         void Start()
         {
-            NextFlow(); 
+            CurrentFlow();
         }
 
         public void NextFlow()
@@ -23,6 +23,14 @@ namespace DorudonGames.Runtime.Manager
             isAnimating = false;
             glassController.SpawnNextGlass();
             diamondController.SpawnNextDiamond();
+        }
+
+        public void CurrentFlow()
+        {
+            destroyedPieceCount = 0;
+            isAnimating = false;
+            glassController.SpawnCurrentGlass();
+            diamondController.SpawnCurrentDiamond();
         }
 
         public void CheckIfDestroyedEnough()

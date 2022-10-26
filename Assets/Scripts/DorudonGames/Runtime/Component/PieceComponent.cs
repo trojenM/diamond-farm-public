@@ -5,6 +5,7 @@ using DorudonGames.Runtime.EventServices.Resources;
 using System.Collections;
 using System.Collections.Generic;
 using DorudonGames.Runtime.EventServices;
+using DorudonGames.Runtime.Misc;
 
 namespace DorudonGames.Runtime.Component
 
@@ -40,6 +41,9 @@ namespace DorudonGames.Runtime.Component
             _startPosition = tr.localPosition;
             _startRotation = tr.localRotation;
             _startScale = tr.localScale;
+
+            hp = PlayerPrefs.GetFloat(CommonTypes.GLASS_HP_DATA_KEY, _fullHp);
+            tr.localScale = Vector3.one * PlayerPrefs.GetFloat(CommonTypes.GLASS_SCALE_DATA_KEY, 1);
         }
 
         public float HpPercentage()
@@ -56,8 +60,10 @@ namespace DorudonGames.Runtime.Component
         public void TakeDamage(float dmg , Vector3 damagePosition)
         {
             hp -= dmg;
+            PlayerPrefs.SetFloat(CommonTypes.GLASS_HP_DATA_KEY, hp);
             _damagePosition = damagePosition;
             tr.localScale=tr.localScale - Vector3.one * scaleDownFactor;
+            PlayerPrefs.SetFloat(CommonTypes.GLASS_SCALE_DATA_KEY, tr.localScale.x);
             float currentHealthPct = hp/_fullHp;
             HealthBar.Instance.HandleHealthChange(currentHealthPct);
             CheckDeath();
@@ -89,6 +95,10 @@ namespace DorudonGames.Runtime.Component
             rb.isKinematic = true;
             SetColliderState(true);
             gameObject.layer = _pieceLayer;
+            
+           // PlayerPrefs.SetFloat(CommonTypes.GLASS_HP_DATA_KEY, hp);
+           // PlayerPrefs.SetFloat(CommonTypes.GLASS_SCALE_DATA_KEY, tr.localScale.x);
+
         }
 
         public void SetMaterial(Material material) => _meshRenderer.material = material;
