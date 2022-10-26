@@ -46,6 +46,16 @@ namespace DorudonGames.Runtime.Manager
             glass.tr.DOMove(placedPosition.position, spawnTime).SetEase(Ease.OutBounce).OnComplete(() => HammerManager.Instance.StartHammers());
         }
 
+        public void SpawnCurrentGlass()
+        {
+            var glass = glasses[glassLevel].glassItems[_current];
+            //glass.ResetGlass();
+            glass.gameObject.SetActive(true);
+            glass.tr.position = placedPosition.position;
+            HealthBar.Instance.HandleHealthChange(glass.GetFirstPieceHealthPercentage());
+            HammerManager.Instance.StartHammers();
+        }
+
         private void OnUpgradeEarned(UpgradeEarnedEvent e)
         {
             if (e.UpgradeType != UpgradeType.INCOME)

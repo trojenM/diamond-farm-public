@@ -49,9 +49,9 @@ namespace DorudonGames.Runtime.Component
             },2f);
         }
 
-        // public float GetFirstPieceHealthPercentage()
-        // {
-        //     return _pieces[0].HpPercentage();
-        // }
+         public float GetFirstPieceHealthPercentage() 
+         {
+             return _pieces[0].HpPercentage();
+         }
     }
 }

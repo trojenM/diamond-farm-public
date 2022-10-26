@@ -25,6 +25,7 @@ namespace DorudonGames.Runtime.Controllers
 
         private void Awake()
         {
+            _current = PlayerPrefs.GetInt(CommonTypes.CURRENT_DIAMOND_DATA_KEY, 0);
             EventService.AddListener<UpgradeEarnedEvent>(OnUpgradeEarned);
             
         }
@@ -34,6 +35,7 @@ namespace DorudonGames.Runtime.Controllers
             _current++;
             if (_current >= _max)
                   _current = 0;
+            PlayerPrefs.SetInt(CommonTypes.CURRENT_DIAMOND_DATA_KEY, _current);
 
             var diamond = diamondList[_diaLevel].diamondItems[_current];
             _spawnedLevel = _diaLevel;
@@ -41,6 +43,15 @@ namespace DorudonGames.Runtime.Controllers
             diamond.gameObject.SetActive(true);
             diamond.tr.position = spawnPosition.position;
             diamond.tr.DOMove(placedPosition.position, spawnTime).SetEase(Ease.OutBounce);
+        }
+
+        public void SpawnCurrentDiamond()
+        {
+            var diamond = diamondList[_diaLevel].diamondItems[_current];
+            _spawnedLevel = _diaLevel;
+            _spawnedIndex = _current;
+            diamond.gameObject.SetActive(true);
+            diamond.tr.position = placedPosition.position;
         }
 
         public void AnimateAndDestroy()
