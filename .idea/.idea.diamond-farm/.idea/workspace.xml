@@ -1,39 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="35278826-d222-4c8d-9d13-e55ab56006fa" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.idea.diamond-farm/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.diamond-farm/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/MoverComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/MoverComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scenes/Dev Scene 2.unity" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scenes/Dev Scene 2.unity" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scriptables/IncomeUpgrade.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptables/IncomeUpgrade.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scriptables/PowerUpgrade.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptables/PowerUpgrade.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scriptables/SpeedUpgrade.asset" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scriptables/SpeedUpgrade.asset" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Joystick.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Joystick/JoystickEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Joystick/JoystickEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Joystick/VariableJoystickEditor.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Joystick/VariableJoystickEditor.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/CircularMultipleColorGradientSkyboxGUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/CircularMultipleColorGradientSkyboxGUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/CircularTwoColorGradientSkyboxGUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/CircularTwoColorGradientSkyboxGUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/GradientObject.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/GradientObject.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/LinearMultipleColorGradientSkyboxGUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/LinearMultipleColorGradientSkyboxGUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/LinearThreeColorGradientSkyboxGUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/LinearThreeColorGradientSkyboxGUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/LinearTwoColorGradientSkyboxGUI.cs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Editor/Skybox/LinearTwoColorGradientSkyboxGUI.cs.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/CameraLookAtComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/CameraLookAtComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/PieceComponent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/PieceComponent.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/EventServices/EventDispatchers.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/EventServices/EventDispatchers.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/HammerManager.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/HammerManager.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/UI/HealthBar.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/UI/HealthBar.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" beforeDir="false" afterPath="$PROJECT_DIR$/UserSettings/Layouts/CurrentMaximizeLayout.dwlt" afterDir="false" />
-    </list>
+    <list default="true" id="35278826-d222-4c8d-9d13-e55ab56006fa" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -43,33 +11,38 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/EventServices/Resources/Misc/ErrorEvent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Misc/GameobjectRotator.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/RenderHammerComponent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/EventServices/EventService.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/GlassComponent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/EventServices/Resources/BaseEvent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Runtime/Behaviours/CinemachineFreeLook.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../crazy-speed/Assets/GRAMOFON/Runtime/Scripts/Managers/VibrationManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Misc/CommonTypes.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../crazy-speed/Assets/GRAMOFON/Runtime/Scripts/Managers/GameManager.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/../scare-vampires/Assets/GRAMOFON/Runtime/Scripts/Services/Error/ErrorService.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/TouchManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/InterfaceManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Joystick/VariableJoystick.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Editor/Utility/ReflectionHelpers.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/BaseComponent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/VibrationManager.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Assets/MoverComponent.cs" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.7/Editor/Drawing/PreviewManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../crazy-speed/Assets/GRAMOFON/Runtime/Scripts/Managers/VibrationManager.cs" root0="SKIP_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/../crazy-speed/Assets/GRAMOFON/Runtime/Scripts/Misc/CommonTypes.cs" root0="SKIP_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Framework/Control/Sequence.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/MoverComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/BaseComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/GlassComponent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Component/RenderHammerComponent.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/DorudonUtils.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/EventServices/EventService.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/EventServices/Resources/BaseEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/EventServices/Resources/Misc/ErrorEvent.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Joystick/VariableJoystick.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/CameraManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/GameManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/InterfaceManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/LevelManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/TouchManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Manager/VibrationManager.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Misc/CommonTypes.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Assets/Scripts/DorudonGames/Runtime/Misc/GameobjectRotator.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Editor/Utility/ReflectionHelpers.cs" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Editor/Utility/VcamStageEditor.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.cinemachine@2.8.9/Runtime/Behaviours/CinemachineFreeLook.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.shadergraph@12.1.7/Editor/Drawing/PreviewManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.ugui@1.0.0/Runtime/EventSystem/EventSystem.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/Library/PackageCache/com.unity.visualscripting@1.7.8/Runtime/VisualScripting.Flow/Framework/Control/Sequence.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/../scare-vampires/Assets/GRAMOFON/Runtime/Scripts/Services/Error/ErrorService.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/DecompilerCache/decompiler/0d6ce211ebbc47e1a35a84c3672ff58f813800/76/ade6c424/ShaderGUI.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Desktop/Github Projects/crazy-speed/Assets/GRAMOFON/Runtime/Scripts/Managers/InterfaceManager.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Desktop/Github Projects/crazy-speed/Assets/Scripts/Controllers/LocomotivesController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Desktop/Github Projects/crazy-speed/Assets/Scripts/Controllers/SplinesController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="file://$USER_HOME$/Desktop/Github Projects/scare-vampires/Assets/GRAMOFON/Runtime/Scripts/Managers/InterfaceManager.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -151,7 +124,6 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
