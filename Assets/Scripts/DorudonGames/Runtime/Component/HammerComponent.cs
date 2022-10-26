@@ -107,7 +107,17 @@ namespace DorudonGames.Runtime.Component
             LevelManager.Instance.IncreaseCreditAmount((int)damage);
             InterfaceManager.Instance.FlyCurrencyTextFromWorld(castPosition.position, (int)damage);
             SetTargetUp();
-            EventDispatchers.DispatchOnHammerHit(damage , castPosition);
+            //EventDispatchers.DispatchOnHammerHit(damage , castPosition);
+            
+            RaycastHit[] hitInfo = Physics.SphereCastAll(castPosition.position, sphereRadius, castPosition.forward, 10f, layerMask,QueryTriggerInteraction.UseGlobal);
+            
+            foreach (var hit in hitInfo)
+            {
+                if (hit.transform.TryGetComponent(out PieceComponent piece))
+                {
+                    piece.TakeDamage(damage,castPosition.position);
+                }
+            }
         }
        
 

@@ -9,9 +9,11 @@ namespace DorudonGames.Runtime.UI
         [SerializeField] private RectTransform radialTr;
         [SerializeField] private RectTransform newHammerAchievedTr;
         [SerializeField] private GameObject tapToContinueObj;
+        [SerializeField] private Camera renderCamera;
 
         public void ShowNewHammerUIPanel()
         {
+            renderCamera.gameObject.SetActive(true);
             screenObj.SetActive(true);
             radialTr.localScale = Vector3.zero;
             newHammerAchievedTr.localScale = Vector3.zero;
@@ -24,6 +26,7 @@ namespace DorudonGames.Runtime.UI
         public void HideNewHammerUIPanel()
         {
             screenObj.SetActive(false);
+            renderCamera.gameObject.SetActive(false);
         }
     }
 }

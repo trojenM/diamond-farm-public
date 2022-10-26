@@ -37,9 +37,8 @@ namespace DorudonGames.Runtime.Manager
                 sound.Source = source;  
             }
 
-            //state = PlayerPrefs.GetInt(CommonTypes.SOUND_STATE_KEY, 1) != 0;
-            //ChangeActiveState(state);
-            
+            state = PlayerPrefs.GetInt(CommonTypes.SOUND_STATE_KEY, 1) != 0;
+
             base.Awake();
         }
 
@@ -72,10 +71,11 @@ namespace DorudonGames.Runtime.Manager
         /// This function helper for change sound state.
         /// </summary>
         /// <param name="state"></param>
-        public void ChangeActiveState(bool state)
+        public void ChangeActiveState()
         {
+            state = !state;
             AudioListener.volume = state ? 1 : 0;
-            PlayerPrefs.SetInt(CommonTypes.SOUND_STATE_KEY, state ? 0 : 1);
+            PlayerPrefs.SetInt(CommonTypes.SOUND_STATE_KEY, state ? 1 : 0);
         }
 
         /// <summary>

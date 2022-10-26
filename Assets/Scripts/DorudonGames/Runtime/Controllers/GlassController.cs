@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using DG.Tweening;
 using DorudonGames.Runtime.Component;
 using DorudonGames.Runtime.Enum;
+using DorudonGames.Runtime.EventServices;
 using DorudonGames.Runtime.EventServices.Resources.Game;
 using UnityEngine;
 using EventService = DorudonGames.Runtime.EventServices.EventService;
@@ -20,6 +21,7 @@ namespace DorudonGames.Runtime.Manager
         private void Awake()
         {
             EventService.AddListener<UpgradeEarnedEvent>(OnUpgradeEarned);
+            // EventService.AddListener<OnHammerHitEvent>(OnHammerHit);
             _max = glasses[glassLevel].glassItems.Length;
         }
 
@@ -51,6 +53,12 @@ namespace DorudonGames.Runtime.Manager
 
             glassLevel = (int)e.UpgradeLevelValue - 1;
         }
+
+        // private void OnHammerHit(OnHammerHitEvent e)
+        // {
+        //     var glass = glasses[glassLevel].glassItems[_current];
+        //     HealthBar.Instance.HandleHealthChange(glass.GetFirstPieceHealthPercentage());
+        // }
 
         public GlassComponent GetCurrentGlass() => glasses[glassLevel].glassItems[_current] ? glasses[glassLevel].glassItems[_current] : null;
     }

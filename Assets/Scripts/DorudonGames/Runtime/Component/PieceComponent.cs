@@ -28,7 +28,7 @@ namespace DorudonGames.Runtime.Component
       
         private void Awake()
         {
-            EventService.AddListener<OnHammerHitEvent>(Damage);
+            //EventService.AddListener<OnHammerHitEvent>(Damage);
             rb = GetComponent<Rigidbody>();
             _collider = GetComponent<Collider>();
             _meshRenderer = GetComponent<MeshRenderer>();
@@ -42,10 +42,16 @@ namespace DorudonGames.Runtime.Component
             _startScale = tr.localScale;
         }
 
-        private void Damage(OnHammerHitEvent e)
+        public float HpPercentage()
         {
-            TakeDamage(e.Damage , e.Pos.position);
+            return hp / _fullHp;
         }
+
+        //private void Damage(OnHammerHitEvent e)
+        //{
+        //    TakeDamage(e.Damage , e.Pos.position);
+        //    print(hp);
+        //}
 
         public void TakeDamage(float dmg , Vector3 damagePosition)
         {

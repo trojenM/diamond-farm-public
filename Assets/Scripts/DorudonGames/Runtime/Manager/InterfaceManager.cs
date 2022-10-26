@@ -17,6 +17,7 @@
      {
          [Header("Transforms")]
          [SerializeField] private RectTransform canvas;
+         [SerializeField] private RectTransform gameScreen;
          [SerializeField] private RectTransform chargeSlot;
          [SerializeField] private RectTransform creditSlot;
          
@@ -159,7 +160,7 @@
              Vector3 screenPosition = GameUtils.WorldToCanvasPosition(canvas, targetCamera, worldPosition);
              //Vector3 targetScreenPosition = m_canvas.InverseTransformPoint(m_currencySlot.position);
                 
-             TMP_Text createdCurrency = Instantiate(creditTextPrefab, canvas);
+             TMP_Text createdCurrency = Instantiate(creditTextPrefab, gameScreen);
              createdCurrency.text = "+" + amount;
              createdCurrency.rectTransform.anchoredPosition = screenPosition;
             
