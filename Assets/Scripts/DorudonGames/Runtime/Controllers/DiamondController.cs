@@ -67,7 +67,7 @@ namespace DorudonGames.Runtime.Controllers
                 SoundManager.Instance.Play(CommonTypes.SFX_DIAMOND_DESTROY);
                 InterfaceManager.Instance.FlyCurrencyTextFromWorld(diamond.transform.position, 1000 * incomeMul);
                 InterfaceManager.Instance.FlyCurrencyFromWorld(diamond.transform.position);
-                InterfaceManager.Instance.ActivateNewDiamondAchievedScreen(_diaLevel, _current);
+                InterfaceManager.Instance.ActivateNewDiamondAchievedScreen(_spawnedLevel, _spawnedIndex);
                 destroyParticle.Play();
                 diamond.gameObject.SetActive(false);
                 FlowManager.Instance.NextFlow();
