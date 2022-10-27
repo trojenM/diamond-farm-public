@@ -166,6 +166,7 @@ MonoBehaviour:
   rotateDegree: -100
   rotationDistance: 0.001
   damage: 30
+  income: 6
 --- !u!1001 &7549715678780511895
 PrefabInstance:
   m_ObjectHideFlags: 0

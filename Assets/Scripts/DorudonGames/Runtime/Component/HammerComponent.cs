@@ -17,6 +17,7 @@ namespace DorudonGames.Runtime.Component
         [SerializeField] private float rotateDegree;
         [SerializeField] private float rotationDistance = 0.025f;
         [SerializeField] private float damage = 15f;
+        [SerializeField] private int income = 2;
         private Quaternion _startRotation, _endRotation;
         private Quaternion _targetRotation;
         private bool _rotateDown = true;
@@ -104,8 +105,8 @@ namespace DorudonGames.Runtime.Component
         {
             sparkleParticle.Play();
             SoundManager.Instance.Play(CommonTypes.SFX_HAMMER_HIT);
-            LevelManager.Instance.IncreaseCreditAmount((int)damage - 5);
-            InterfaceManager.Instance.FlyCurrencyTextFromWorld(castPosition.position, (int)damage - 5);
+            LevelManager.Instance.IncreaseCreditAmount((int)income);
+            InterfaceManager.Instance.FlyCurrencyTextFromWorld(castPosition.position, (int)income);
             SetTargetUp();
             //EventDispatchers.DispatchOnHammerHit(damage , castPosition);
             

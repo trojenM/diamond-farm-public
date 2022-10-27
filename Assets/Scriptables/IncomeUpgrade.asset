@@ -19,10 +19,10 @@ MonoBehaviour:
   - LevelValue: 1
     Cost: 900
   - LevelValue: 2
-    Cost: 1200
+    Cost: 2400
   - LevelValue: 3
-    Cost: 2200
+    Cost: 5600
   - LevelValue: 4
-    Cost: 3400
+    Cost: 9000
   - LevelValue: 5
-    Cost: 4800
+    Cost: 14000

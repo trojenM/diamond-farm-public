@@ -399,6 +399,7 @@ MonoBehaviour:
   rotateDegree: -100
   rotationDistance: 0.001
   damage: 60
+  income: 12
 --- !u!4 &8986184830440871111 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 4ca70228322c86a4588fccf85fbe700a, type: 3}
