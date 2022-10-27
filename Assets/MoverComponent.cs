@@ -57,6 +57,8 @@ public class MoverComponent : MonoBehaviour
             int hammerIdx = ((upgradeLevel - i) - remainder) / 4;
             Instantiate(hammers[hammerIdx], hammerSlots[remainder]);
         }
+        
+        firstRun = true;
     }
 
     private void OnUpgradeEarned(UpgradeEarnedEvent e)
