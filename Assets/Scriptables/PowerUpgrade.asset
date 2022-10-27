@@ -47,9 +47,9 @@ MonoBehaviour:
   - LevelValue: 14
     Cost: 4500
   - LevelValue: 15
-    Cost: 9600
+    Cost: 4800
   - LevelValue: 16
-    Cost: 10200
+    Cost: 5100
   - LevelValue: 17
     Cost: 5400
   - LevelValue: 18
