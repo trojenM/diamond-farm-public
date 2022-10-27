@@ -46,10 +46,10 @@
              newHammerAchievedUI.ShowNewHammerUIPanel();
          }
 
-         public void ActivateNewDiamondAchievedScreen(int diamondLvl, int diamondIdx)
+         public void ActivateNewDiamondAchievedScreen(int diamondLvl, int diamondIdx, int diamondValue)
          {
              renderHammer.SwitchDiamond(diamondLvl, diamondIdx);
-             newDiamondAchievedUI.ShowNewDiamondUIPanel();
+             newDiamondAchievedUI.ShowNewDiamondUIPanel(diamondValue);
          }
 
          /// <summary>

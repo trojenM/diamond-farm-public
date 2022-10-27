@@ -104,8 +104,8 @@ namespace DorudonGames.Runtime.Component
         {
             sparkleParticle.Play();
             SoundManager.Instance.Play(CommonTypes.SFX_HAMMER_HIT);
-            LevelManager.Instance.IncreaseCreditAmount((int)damage);
-            InterfaceManager.Instance.FlyCurrencyTextFromWorld(castPosition.position, (int)damage);
+            LevelManager.Instance.IncreaseCreditAmount((int)damage - 5);
+            InterfaceManager.Instance.FlyCurrencyTextFromWorld(castPosition.position, (int)damage - 5);
             SetTargetUp();
             //EventDispatchers.DispatchOnHammerHit(damage , castPosition);
             

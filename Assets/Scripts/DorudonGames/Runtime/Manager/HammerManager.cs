@@ -67,7 +67,7 @@ namespace DorudonGames.Runtime.Manager
             {
                 _hammerSpeedValue -= 1f / incrementSegment;
                 _interval = decreaseInterval;
-                if(!IsPointerOverUIElement())
+                if(!IsPointerOverUIElement() && !Input.GetMouseButton(0))
                     EventDispatchers.DispatchHideUpgrades(false);
             }
 

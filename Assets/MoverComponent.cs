@@ -71,8 +71,6 @@ public class MoverComponent : MonoBehaviour
 
          if (firstRun)
          {
-             print("test");
-             
              if (remainder == 0)
                  InterfaceManager.Instance.ActivateNewHammerAchievedScreen(currentHammerIdx - 1);
              

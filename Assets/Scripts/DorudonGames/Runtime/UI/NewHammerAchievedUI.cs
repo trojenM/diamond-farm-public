@@ -21,6 +21,7 @@ namespace DorudonGames.Runtime.UI
             Sequence seq = DOTween.Sequence();
             seq.Append(radialTr.DOScale(Vector3.one, 0.5f));
             seq.Append(newHammerAchievedTr.DOScale(Vector3.one, 0.5f).OnComplete((() => tapToContinueObj.SetActive(true))));
+            seq.Play();
         }
 
         public void HideNewHammerUIPanel()

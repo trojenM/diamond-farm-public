@@ -17,50 +17,50 @@ MonoBehaviour:
   UpgradeType: 0
   LevelsAndCosts:
   - LevelValue: 0
-    Cost: 900
+    Cost: 300
   - LevelValue: 1
-    Cost: 1200
+    Cost: 600
   - LevelValue: 2
     Cost: 1800
   - LevelValue: 3
-    Cost: 3600
+    Cost: 2400
   - LevelValue: 4
-    Cost: 4800
+    Cost: 3000
   - LevelValue: 5
-    Cost: 9600
+    Cost: 3600
   - LevelValue: 6
-    Cost: 14400
+    Cost: 4200
   - LevelValue: 7
-    Cost: 19200
-  - LevelValue: 8
-    Cost: 38400
-  - LevelValue: 9
-    Cost: 43200
-  - LevelValue: 10
     Cost: 4800
+  - LevelValue: 8
+    Cost: 5400
+  - LevelValue: 9
+    Cost: 6000
+  - LevelValue: 10
+    Cost: 6600
   - LevelValue: 11
-    Cost: 9600
-  - LevelValue: 12
-    Cost: 14400
-  - LevelValue: 13
-    Cost: 19200
-  - LevelValue: 14
-    Cost: 24000
-  - LevelValue: 15
     Cost: 7200
+  - LevelValue: 12
+    Cost: 7800
+  - LevelValue: 13
+    Cost: 8400
+  - LevelValue: 14
+    Cost: 9000
+  - LevelValue: 15
+    Cost: 9600
   - LevelValue: 16
-    Cost: 16000
+    Cost: 10200
   - LevelValue: 17
-    Cost: 22400
+    Cost: 10800
   - LevelValue: 18
-    Cost: 21600
+    Cost: 11400
   - LevelValue: 19
-    Cost: 26400
+    Cost: 12000
   - LevelValue: 20
-    Cost: 31200
+    Cost: 12600
   - LevelValue: 21
-    Cost: 36000
+    Cost: 13200
   - LevelValue: 22
-    Cost: 40800
+    Cost: 13800
   - LevelValue: 23
-    Cost: 45600
+    Cost: 14400

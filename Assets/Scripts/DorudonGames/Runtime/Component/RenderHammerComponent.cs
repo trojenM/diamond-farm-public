@@ -23,7 +23,8 @@ namespace DorudonGames.Runtime.Component
             if (hammerSlot.childCount == 1) 
                 Destroy(hammerSlot.GetChild(0).gameObject);
 
-            Instantiate(renderDiamonds[diamondLvl].renderDiamonds[idx], hammerSlot);
+            GameObject obj = Instantiate(renderDiamonds[diamondLvl].renderDiamonds[idx], hammerSlot);
+            obj.transform.position += Vector3.up * 0.25f;
         }
     }
 
