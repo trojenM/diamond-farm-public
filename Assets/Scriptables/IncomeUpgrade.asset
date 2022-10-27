@@ -17,12 +17,20 @@ MonoBehaviour:
   UpgradeType: 2
   LevelsAndCosts:
   - LevelValue: 1
-    Cost: 900
+    Cost: 600
   - LevelValue: 2
     Cost: 2400
   - LevelValue: 3
+<<<<<<< Updated upstream
     Cost: 5600
   - LevelValue: 4
     Cost: 9000
   - LevelValue: 5
     Cost: 14000
+=======
+    Cost: 2400
+  - LevelValue: 4
+    Cost: 5600
+  - LevelValue: 5
+    Cost: 9000
+>>>>>>> Stashed changes
