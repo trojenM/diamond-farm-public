@@ -41,8 +41,6 @@ namespace DorudonGames.Runtime.Manager
         {
             if (e.UpgradeType == UpgradeType.SPEED)
                 _hammerSpeedMul = e.UpgradeLevelValue;
-            else if (e.UpgradeType == UpgradeType.POWER)
-                SetHammerPower(e.UpgradeLevelValue);
         }
 
         void Update()
@@ -57,8 +55,8 @@ namespace DorudonGames.Runtime.Manager
             {
                 _hammerSpeedValue += 1f / incrementSegment; 
                 _interval = decreaseInterval * 4f;
-                if (!EventSystem.current.IsPointerOverGameObject() && !IsPointerOverUIElement())
-                    EventDispatchers.DispatchHideUpgrades(true);
+                // if (!EventSystem.current.IsPointerOverGameObject() && !IsPointerOverUIElement())
+                //     EventDispatchers.DispatchHideUpgrades(true);
             }
             
             _interval -= Time.deltaTime;
@@ -67,14 +65,14 @@ namespace DorudonGames.Runtime.Manager
             {
                 _hammerSpeedValue -= 1f / incrementSegment;
                 _interval = decreaseInterval;
-                if(!IsPointerOverUIElement() && !Input.GetMouseButton(0))
-                    EventDispatchers.DispatchHideUpgrades(false);
+                // if(!IsPointerOverUIElement() && !Input.GetMouseButton(0))
+                //     EventDispatchers.DispatchHideUpgrades(false);
             }
 
             _hammerSpeedValue = Mathf.Clamp01(_hammerSpeedValue);
         }
         
-        public void SetHammerPower(float power) { EventDispatchers.DispatchHammerPower(power); }
+        //public void SetHammerPower(float power) { EventDispatchers.DispatchHammerPower(power); }
         public void StopHammers() { isHammerStopped = true; }
         public void StartHammers() { isHammerStopped = false; }
 

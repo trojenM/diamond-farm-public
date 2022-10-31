@@ -1,3 +1,4 @@
+using System;
 using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices;
 using DorudonGames.Runtime.EventServices.Resources.Game;
@@ -24,11 +25,14 @@ namespace DorudonGames.Runtime.Component
         private bool _hasStoppedSwitch = false;
         private Collider _collider;
         private float _hammerSpeed;
-        private int incomeMul;
+        private float incomeMul;
 
+        public int GetIncome() { return (int)((damage - 5) * (incomeMul-(incomeMul*0.75f))); }
+        
         private void Awake()
         {
             EventService.AddListener<UpdateHammerSpeedEvent>(UpdateHammerSpeed);
+            EventService.AddListener<UpdateHammerIncomeEvent>(UpdateIncomeMultiplier);
             _collider = GetComponent<Collider>();
             _startRotation = transform.localRotation;
             _endRotation = Quaternion.Euler(_startRotation.eulerAngles + new Vector3(0f, 0f, rotateDegree));
@@ -60,6 +64,11 @@ namespace DorudonGames.Runtime.Component
         {
             _hammerSpeed = e.Speed;
             _hasStopped = e.IsHammerStopped;
+        }
+
+        private void UpdateIncomeMultiplier(UpdateHammerIncomeEvent e)
+        {
+            incomeMul = e.Income;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -104,8 +113,8 @@ namespace DorudonGames.Runtime.Component
         {
             sparkleParticle.Play();
             SoundManager.Instance.Play(CommonTypes.SFX_HAMMER_HIT);
-            LevelManager.Instance.IncreaseCreditAmount((int)damage - 5);
-            InterfaceManager.Instance.FlyCurrencyTextFromWorld(castPosition.position, (int)damage - 5);
+            LevelManager.Instance.IncreaseCreditAmount(GetIncome());
+            InterfaceManager.Instance.FlyCurrencyTextFromWorld(castPosition.position, GetIncome());
             SetTargetUp();
             //EventDispatchers.DispatchOnHammerHit(damage , castPosition);
             

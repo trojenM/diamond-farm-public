@@ -39,13 +39,13 @@ namespace DorudonGames.Runtime.EventServices
             EventService.DispatchEvent(updateHammerSpeedEvent);
         }
 
-        public static void DispatchHammerPower(float power)
+        public static void DispatchHammerIncome(float income)
         {
-            UpdateHammerPowerEvent updateHammerPowerEvent = new UpdateHammerPowerEvent()
+            UpdateHammerIncomeEvent updateHammerIncomeEvent = new UpdateHammerIncomeEvent()
             {
-                Power = power,
+                Income = income,
             };
-            EventService.DispatchEvent(updateHammerPowerEvent);
+            EventService.DispatchEvent(updateHammerIncomeEvent);
         }
 
         public static void DispatchHideUpgrades(bool isHide)
