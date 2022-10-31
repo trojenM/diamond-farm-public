@@ -404,3 +404,4 @@ MonoBehaviour:
   rotateDegree: -100
   rotationDistance: 0.001
   damage: 50
+  income: 10
