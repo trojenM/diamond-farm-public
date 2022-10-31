@@ -47,13 +47,18 @@ namespace DorudonGames.Runtime.Component
 
         public void InitializeHammer()
         {
+            
             for (int i = 0; i < 4; i++)
             {
+                
                 if (upgradeLevel - i <= -1)
                 {
                     firstRun = true;
-                    return;
+                    //return;
+                    break;
+                  
                 }
+            
 
                 int remainder = (upgradeLevel - i) % 4;
                 int hammerIdx = ((upgradeLevel - i) - remainder) / 4;
