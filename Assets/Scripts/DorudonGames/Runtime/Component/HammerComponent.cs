@@ -27,7 +27,7 @@ namespace DorudonGames.Runtime.Component
         private float _hammerSpeed;
         private float incomeMul;
 
-        public int GetIncome() { return (int)((damage - 5) * (incomeMul-(incomeMul*0.75f))); }
+        public int GetIncome() { return (int)((damage) * (incomeMul-(incomeMul * 0.7f))); }
         
         private void Awake()
         {

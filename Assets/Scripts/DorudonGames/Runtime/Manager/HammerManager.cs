@@ -46,7 +46,7 @@ namespace DorudonGames.Runtime.Manager
         void Update()
         {
             ManageHammerSpeed();
-            EventDispatchers.DispatchHammerSpeed((baseSpeed + (_hammerSpeedValue * (maxSpeed - baseSpeed))) * _hammerSpeedMul, isHammerStopped);
+            EventDispatchers.DispatchHammerSpeed((baseSpeed + (_hammerSpeedValue * (maxSpeed - baseSpeed))) * _hammerSpeedMul, _hammerSpeedValue, _hammerSpeedMul, isHammerStopped);
         }
         
         private void ManageHammerSpeed()

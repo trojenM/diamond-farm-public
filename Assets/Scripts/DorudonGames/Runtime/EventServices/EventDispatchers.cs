@@ -29,11 +29,13 @@ namespace DorudonGames.Runtime.EventServices
             EventService.DispatchEvent(upgradeEarnedEvent);
         }
 
-        public static void DispatchHammerSpeed(float speed, bool isHammerStopped = false)
+        public static void DispatchHammerSpeed(float speed, float speedValue, float hammerSpeedMul, bool isHammerStopped = false)
         {
             UpdateHammerSpeedEvent updateHammerSpeedEvent = new UpdateHammerSpeedEvent()
             {
                 Speed = speed,
+                SpeedValue = speedValue,
+                HammerSpeedMul = hammerSpeedMul,
                 IsHammerStopped = isHammerStopped,
             };
             EventService.DispatchEvent(updateHammerSpeedEvent);

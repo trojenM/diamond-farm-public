@@ -3,6 +3,8 @@
     public class UpdateHammerSpeedEvent : BaseEvent
     {
         public float Speed;
+        public float SpeedValue;
+        public float HammerSpeedMul;
         public bool IsHammerStopped;
     }
 }
