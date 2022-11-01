@@ -15,11 +15,9 @@ Material:
   - _MK_COLOR_GRADING_ALBEDO
   - _MK_ENVIRONMENT_REFLECTIONS_AMBIENT
   - _MK_LIGHT_RAMP
-  - _MK_RECEIVE_SHADOWS
   - _MK_SPECULAR_ISOTROPIC
   - _MK_WRAPPED_DIFFUSE
   m_InvalidKeywords:
-  - _RECEIVESHADOWS_ON
   - _WRAPPEDLIGHTING_ON
   m_LightmapFlags: 6
   m_EnableInstancingVariants: 0
@@ -169,7 +167,7 @@ Material:
     - _ClearCoatMask: 0
     - _ClearCoatSmoothness: 0
     - _ColorGrading: 1
-    - _Contrast: 1.2
+    - _Contrast: 1.4
     - _Cull: 2
     - _Cutoff: 0.5
     - _DetailAlbedoMapScale: 1
@@ -206,14 +204,14 @@ Material:
     - _OptionsTab: 1
     - _Parallax: 0.005
     - _QueueOffset: 0
-    - _ReceiveShadows: 1
+    - _ReceiveShadows: 0
     - _RenderFace: 2
     - _RenderPriority: 0
     - _Rim: 0
     - _RimSize: 1
     - _RimSmoothness: 0.5
     - _RimThresholdOffset: 0.25
-    - _Saturation: 1.2
+    - _Saturation: 2
     - _SketchMapScale: 1
     - _Smoothness: 0
     - _SmoothnessTextureChannel: 0
