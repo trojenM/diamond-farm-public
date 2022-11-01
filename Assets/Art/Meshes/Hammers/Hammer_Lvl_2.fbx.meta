@@ -3,7 +3,12 @@ guid: 115de1dd6a2330f4a92629a46d0c74c3
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Diamond_Farm_General
+    second: {fileID: 2100000, guid: 87f3c1b32101ee14d89ce1b1dafbfc05, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0

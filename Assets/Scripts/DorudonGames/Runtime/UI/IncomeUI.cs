@@ -20,7 +20,7 @@ namespace DorudonGames.Runtime.UI
         private void OnHammerSpeedUpdate(UpdateHammerSpeedEvent e)
         {
             float speed = e.Speed;
-            speed = Mathf.Lerp(1f, e.HammerSpeedMul*2, e.SpeedValue);
+            speed = Mathf.Lerp(e.HammerSpeedMul * 1.2f, e.HammerSpeedMul*2f, e.SpeedValue);
             incomeText.text = "$" + (int)(hammersIncome *  speed) + "/sec";
         }
 

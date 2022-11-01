@@ -64,7 +64,7 @@ namespace DorudonGames.Runtime.Component
             _damagePosition = damagePosition;
             //tr.localScale=tr.localScale - Vector3.one * scaleDownFactor;
             float t = Mathf.InverseLerp(0f, _fullHp, hp);
-            tr.localScale = Vector3.one * Mathf.Lerp(0.91f, 1f, t);
+            tr.localScale = Vector3.one * Mathf.Lerp(0.85f, 1f, t);
             PlayerPrefs.SetFloat(CommonTypes.GLASS_SCALE_DATA_KEY, tr.localScale.x);
             float currentHealthPct = hp/_fullHp;
             HealthBar.Instance.HandleHealthChange(currentHealthPct);
