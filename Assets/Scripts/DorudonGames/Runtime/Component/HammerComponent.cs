@@ -14,7 +14,6 @@ namespace DorudonGames.Runtime.Component
         [SerializeField] private ParticleSystem spawnParticle;
         [SerializeField] private LayerMask layerMask;
         [SerializeField] private Transform castPosition;
-         private float sphereRadius=0.75f;
         [SerializeField] private float rotateDegree;
         [SerializeField] private float rotationDistance = 0.025f;
         [SerializeField] private float damage = 15f;
@@ -25,10 +24,11 @@ namespace DorudonGames.Runtime.Component
         private bool _hasStoppedSwitch = false;
         private Collider _collider;
         private float _hammerSpeed;
-        private float incomeMul;
-        private bool isMud;
+        private float _sphereRadius;
+        private float _incomeMul;
+        
 
-        public int GetIncome() { return (int)((damage) * (incomeMul-(incomeMul * 0.7f))); }
+        public int GetIncome() { return (int)((damage) * (_incomeMul-(_incomeMul * 0.7f))); }
         
         private void Awake()
         {
@@ -71,7 +71,7 @@ namespace DorudonGames.Runtime.Component
 
         private void UpdateIncomeMultiplier(UpdateHammerIncomeEvent e)
         {
-            incomeMul = e.Income;
+            _incomeMul = e.Income;
         }
 
         private void OnTriggerEnter(Collider other)
@@ -125,18 +125,18 @@ namespace DorudonGames.Runtime.Component
             //EventDispatchers.DispatchOnHammerHit(damage , castPosition);
           
             
-            RaycastHit[] hitInfo = Physics.SphereCastAll(castPosition.position, sphereRadius, castPosition.forward, 10f, layerMask,QueryTriggerInteraction.UseGlobal);
+            RaycastHit[] hitInfo = Physics.SphereCastAll(castPosition.position, _sphereRadius, castPosition.forward, 10f, layerMask,QueryTriggerInteraction.UseGlobal);
             
             foreach (var hit in hitInfo)
             {
                 if (hit.transform.TryGetComponent(out PieceComponent piece))
                 {
-                    sphereRadius = 0.75f;
+                    _sphereRadius = 0.75f;
                     piece.TakeDamage(damage, castPosition.position);
                 }
                 else if(hit.transform.TryGetComponent(out MudPieceComponent mudPiece))
                 {
-                    sphereRadius = 0.1f;
+                    _sphereRadius = 0.1f;
                     mudPiece.mudPieces.Add(hit.transform.gameObject);
                     mudPiece.TakeDamage(damage, castPosition.position);
                 }
@@ -172,7 +172,7 @@ namespace DorudonGames.Runtime.Component
         void OnDrawGizmos()
         {
             Gizmos.color = Color.green;
-            Gizmos.DrawWireSphere(castPosition.position + castPosition.forward * (sphereRadius/2), sphereRadius);
+            Gizmos.DrawWireSphere(castPosition.position + castPosition.forward * (_sphereRadius/2), _sphereRadius);
         }
 
 
