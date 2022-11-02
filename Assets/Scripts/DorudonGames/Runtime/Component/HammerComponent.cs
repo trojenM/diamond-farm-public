@@ -57,13 +57,7 @@ namespace DorudonGames.Runtime.Component
                 if (RotationDistance(transform.localRotation, _targetRotation, rotationDistance))
                     SwapTargetRotation();
             }
-            if(isMud)
-            {
-                sphereRadius = 0.1f;
-            }else
-            {
-                sphereRadius = 0.75f;
-            }
+         
            
 
             RotateHammer();
@@ -86,14 +80,7 @@ namespace DorudonGames.Runtime.Component
             {
                 return;
             }
-            else if (other.GetComponent<MudPieceComponent>())
-            {
-                isMud = true;
-            }
-            else
-            {
-                isMud = false;
-            }
+          
             OnHammerHit();
         }
 
@@ -144,10 +131,12 @@ namespace DorudonGames.Runtime.Component
             {
                 if (hit.transform.TryGetComponent(out PieceComponent piece))
                 {
+                    sphereRadius = 0.75f;
                     piece.TakeDamage(damage, castPosition.position);
                 }
                 else if(hit.transform.TryGetComponent(out MudPieceComponent mudPiece))
                 {
+                    sphereRadius = 0.1f;
                     mudPiece.mudPieces.Add(hit.transform.gameObject);
                     mudPiece.TakeDamage(damage, castPosition.position);
                 }
