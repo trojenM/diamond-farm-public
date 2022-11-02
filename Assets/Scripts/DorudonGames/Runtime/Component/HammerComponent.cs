@@ -14,7 +14,7 @@ namespace DorudonGames.Runtime.Component
         [SerializeField] private ParticleSystem spawnParticle;
         [SerializeField] private LayerMask layerMask;
         [SerializeField] private Transform castPosition;
-        [SerializeField] private float sphereRadius;
+         private float sphereRadius=0.75f;
         [SerializeField] private float rotateDegree;
         [SerializeField] private float rotationDistance = 0.025f;
         [SerializeField] private float damage = 15f;
@@ -26,6 +26,7 @@ namespace DorudonGames.Runtime.Component
         private Collider _collider;
         private float _hammerSpeed;
         private float incomeMul;
+        private bool isMud;
 
         public int GetIncome() { return (int)((damage) * (incomeMul-(incomeMul * 0.7f))); }
         
@@ -56,6 +57,14 @@ namespace DorudonGames.Runtime.Component
                 if (RotationDistance(transform.localRotation, _targetRotation, rotationDistance))
                     SwapTargetRotation();
             }
+            if(isMud)
+            {
+                sphereRadius = 0.1f;
+            }else
+            {
+                sphereRadius = 0.75f;
+            }
+           
 
             RotateHammer();
         }
@@ -73,8 +82,18 @@ namespace DorudonGames.Runtime.Component
 
         private void OnTriggerEnter(Collider other)
         {
-            if (!other.GetComponent<PieceComponent>()) return;
-
+            if (!other.GetComponent<PieceComponent>())
+            {
+                return;
+            }
+            else if (other.GetComponent<MudPieceComponent>())
+            {
+                isMud = true;
+            }
+            else
+            {
+                isMud = false;
+            }
             OnHammerHit();
         }
 
@@ -117,6 +136,7 @@ namespace DorudonGames.Runtime.Component
             InterfaceManager.Instance.FlyCurrencyTextFromWorld(castPosition.position, GetIncome());
             SetTargetUp();
             //EventDispatchers.DispatchOnHammerHit(damage , castPosition);
+          
             
             RaycastHit[] hitInfo = Physics.SphereCastAll(castPosition.position, sphereRadius, castPosition.forward, 10f, layerMask,QueryTriggerInteraction.UseGlobal);
             
@@ -124,13 +144,15 @@ namespace DorudonGames.Runtime.Component
             {
                 if (hit.transform.TryGetComponent(out PieceComponent piece))
                 {
-                    piece.TakeDamage(damage,castPosition.position);
+                    piece.TakeDamage(damage, castPosition.position);
+                }
+                else if(hit.transform.TryGetComponent(out MudPieceComponent mudPiece))
+                {
+                    mudPiece.mudPieces.Add(hit.transform.gameObject);
+                    mudPiece.TakeDamage(damage, castPosition.position);
                 }
             }
         }
-       
-
-       
        
 
         private void StartHammer()

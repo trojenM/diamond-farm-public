@@ -43,7 +43,7 @@ public class UpgradeItem : MonoBehaviour
     }
     private void Update()
     {
-        if(GameManager.Instance.GetCreditAmount < info.LevelsAndCosts[UpgradeLevel - 1].Cost)
+        if(GameManager.Instance.GetCreditAmount < info.LevelsAndCosts[UpgradeLevel - 1].Cost ||  UpgradeLevel >= info.LevelsAndCosts.Length)
         {
             image.sprite = inactiveSprite;
         }
