@@ -158,8 +158,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   castPosition: {fileID: 6616150248727201941}
-  sphereRadius: 0.75
-  rotateDegree: -100
+  rotateDegree: -130
   rotationDistance: 0.001
   damage: 10
 --- !u!4 &3373784436773577029 stripped

@@ -162,11 +162,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   castPosition: {fileID: 417643461258329288}
-  sphereRadius: 0.75
-  rotateDegree: -100
+  rotateDegree: -130
   rotationDistance: 0.001
   damage: 30
-  income: 6
 --- !u!1001 &7549715678780511895
 PrefabInstance:
   m_ObjectHideFlags: 0

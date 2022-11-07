@@ -33,7 +33,6 @@ namespace DorudonGames.Runtime.UI
             }
 
             hammersIncome = hammerIncomeSum;
-            print(hammerIncomeSum);
         }
     }
 }

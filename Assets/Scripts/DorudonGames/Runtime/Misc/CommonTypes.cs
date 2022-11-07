@@ -26,6 +26,7 @@ namespace DorudonGames.Runtime.Misc
         public static string GLASS_HP_DATA_KEY = "glass_hp";
         public static string GLASS_SCALE_DATA_KEY = "glass_scale";
         public static string CURRENT_DIAMOND_DATA_KEY = "current_diamond";
+        public static string CURRENT_GLASS_DATA_KEY = "current_glass";
         public static string CREDIT_DATA_KEY = "credit_amount_data";
         public static string LEVEL_ID_DATA_KEY = "level_data";
         public static string FIRST_TIME_RUNNED_KEY = "first_time_data";

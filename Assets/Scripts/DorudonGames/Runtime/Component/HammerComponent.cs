@@ -134,11 +134,10 @@ namespace DorudonGames.Runtime.Component
                     _sphereRadius = 0.75f;
                     piece.TakeDamage(damage, castPosition.position);
                 }
-                else if(hit.transform.TryGetComponent(out MudPieceComponent mudPiece))
+                else if (hit.transform.TryGetComponent(out MudPiecesComponent mudPiece))
                 {
-                    _sphereRadius = 0.1f;
-                    mudPiece.mudPieces.Add(hit.transform.gameObject);
-                    mudPiece.TakeDamage(damage, castPosition.position);
+                    _sphereRadius = 0.0001f;
+                    mudPiece.TakeDamage(damage, castPosition.position, hit.transform);
                 }
             }
         }

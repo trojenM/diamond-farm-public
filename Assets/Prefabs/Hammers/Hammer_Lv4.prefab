@@ -292,11 +292,9 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   castPosition: {fileID: 6559828279932750094}
-  sphereRadius: 0.75
-  rotateDegree: -100
+  rotateDegree: -130
   rotationDistance: 0.001
   damage: 40
-  income: 8
 --- !u!4 &6471841524267394191 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: cb35acedaf6f473478462120fb7daaef, type: 3}

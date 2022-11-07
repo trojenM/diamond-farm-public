@@ -5,6 +5,7 @@ using DorudonGames.Runtime.Component;
 using DorudonGames.Runtime.Enum;
 using DorudonGames.Runtime.EventServices;
 using DorudonGames.Runtime.EventServices.Resources.Game;
+using DorudonGames.Runtime.Misc;
 using UnityEngine;
 using EventService = DorudonGames.Runtime.EventServices.EventService;
 
@@ -20,6 +21,7 @@ namespace DorudonGames.Runtime.Manager
 
         private void Awake()
         {
+            //_current = PlayerPrefs.GetInt(CommonTypes.CURRENT_DIAMOND_DATA_KEY, 0);
             EventService.AddListener<UpgradeEarnedEvent>(OnUpgradeEarned);
             // EventService.AddListener<OnHammerHitEvent>(OnHammerHit);
             _max = glasses[glassLevel].glassItems.Length;

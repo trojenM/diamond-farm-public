@@ -400,8 +400,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 8
   castPosition: {fileID: 1139246388199084618}
-  sphereRadius: 0.75
-  rotateDegree: -100
+  rotateDegree: -130
   rotationDistance: 0.001
   damage: 50
-  income: 10
