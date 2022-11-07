@@ -24,7 +24,7 @@ namespace DorudonGames.Runtime.Component
         private bool _hasStoppedSwitch = false;
         private Collider _collider;
         private float _hammerSpeed;
-        private float _sphereRadius;
+        private float _sphereRadius=0.75f;
         private float _incomeMul;
         
 
@@ -131,13 +131,7 @@ namespace DorudonGames.Runtime.Component
             {
                 if (hit.transform.TryGetComponent(out PieceComponent piece))
                 {
-                    _sphereRadius = 0.75f;
                     piece.TakeDamage(damage, castPosition.position);
-                }
-                else if (hit.transform.TryGetComponent(out MudPiecesComponent mudPiece))
-                {
-                    _sphereRadius = 0.0001f;
-                    mudPiece.TakeDamage(damage, castPosition.position, hit.transform);
                 }
             }
         }

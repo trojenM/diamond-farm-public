@@ -10,7 +10,7 @@ using DorudonGames.Runtime.Misc;
 namespace DorudonGames.Runtime.Component
 
 {
-    public class MudPieceComponent : MonoBehaviour
+    public class MudPiecesComponent : MonoBehaviour
     {
         [SerializeField] private float hp = 30f;
         [SerializeField] private float explosionForce = 3f;
@@ -58,17 +58,18 @@ namespace DorudonGames.Runtime.Component
         //    print(hp);
         //}
 
-        public void TakeDamage(float dmg, Vector3 damagePosition)
+        public void TakeDamage(float dmg, Vector3 damagePosition,Transform _transform)
         {
             hp -= dmg;
             PlayerPrefs.SetFloat(CommonTypes.GLASS_HP_DATA_KEY, hp);
             _damagePosition = damagePosition;
             //tr.localScale=tr.localScale - Vector3.one * scaleDownFactor;
             float t = Mathf.InverseLerp(0f, _fullHp, hp);
-            for (int i = 0; i < mudPieces.Count; i++)
+           /* for (int i = 0; i < mudPieces.Count; i++)
             {
                 mudPieces[i].transform.localScale = Vector3.one * Mathf.Lerp(0.85f, 1f, t);
-            }
+            }*/
+            _transform.localScale = Vector3.one * Mathf.Lerp(0.85f, 1f, t);
             PlayerPrefs.SetFloat(CommonTypes.GLASS_SCALE_DATA_KEY, tr.localScale.x);
             float currentHealthPct = hp / _fullHp;
             HealthBar.Instance.HandleHealthChange(currentHealthPct);

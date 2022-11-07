@@ -15,7 +15,9 @@ namespace DorudonGames.Runtime.Component
         [SerializeField] private float hp = 30f;
         [SerializeField] private float explosionForce = 3f;
         [SerializeField] private float explosionRadius = 3f;
-       // [SerializeField] private float scaleDownFactor = 0.02f;
+        [SerializeField] private bool destroyAtPrc;
+        [SerializeField] private float destroyPrc;
+        // [SerializeField] private float scaleDownFactor = 0.02f;
         public Rigidbody rb;
         public Transform tr;
         private Collider _collider;
@@ -26,6 +28,7 @@ namespace DorudonGames.Runtime.Component
         private Vector3 _startPosition, _startScale;
         private Quaternion _startRotation;
         private float _fullHp;
+        
       
         private void Awake()
         {
@@ -73,18 +76,20 @@ namespace DorudonGames.Runtime.Component
 
         private void CheckDeath()
         {
-            if (hp <= 0 && !_isDead) 
+            if ((hp <= 0 && !_isDead) || (destroyAtPrc && (HpPercentage() <= destroyPrc ))) 
                 Die();
         }
 
         private void Die()
         {
+            destroyAtPrc = false;
             _isDead = true;
             rb.isKinematic = false;
-            rb.AddExplosionForce(explosionForce,_damagePosition,explosionRadius);
+            rb.AddForce(explosionForce * (transform.position-transform.parent.position).normalized);
             gameObject.layer = _defaultLayer;
             FlowManager.Instance.destroyedPieceCount++;
             FlowManager.Instance.CheckIfDestroyedEnough();
+            
         }
 
         public void ResetPiece()
