@@ -43,12 +43,12 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Reflection_Detail: 0
-    - _Reflection_Exposure: 1.39
-    - _Reflection_Factor: 0.55
+    - _Reflection_Exposure: 0.5
+    - _Reflection_Factor: 5
     - _Sides: 3
     - _TextureSize: 2.74
     m_Colors:
-    - _Color_Base: {r: 1, g: 0.99676836, b: 0, a: 0}
+    - _Color_Base: {r: 1, g: 0.9960785, b: 0, a: 0}
   m_BuildTextureStacks: []
 --- !u!114 &1756238702135726388
 MonoBehaviour:

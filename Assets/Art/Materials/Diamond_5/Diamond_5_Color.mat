@@ -43,8 +43,8 @@ Material:
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Reflection_Detail: 0
-    - _Reflection_Exposure: 1.39
-    - _Reflection_Factor: 0.55
+    - _Reflection_Exposure: 1
+    - _Reflection_Factor: 3
     - _Sides: 3
     - _TextureSize: 2.74
     m_Colors:

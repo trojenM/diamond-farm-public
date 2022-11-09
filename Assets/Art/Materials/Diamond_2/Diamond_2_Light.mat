@@ -58,7 +58,7 @@ Material:
     - _Fresnel_Power: 0.44
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Specular_Factor: 1
+    - _Specular_Factor: 3
     - _Specular_Power: 0.05
     m_Colors:
     - _Specular_Color: {r: 0, g: 0.8, b: 1, a: 0}
