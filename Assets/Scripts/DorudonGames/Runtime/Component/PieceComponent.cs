@@ -17,6 +17,7 @@ namespace DorudonGames.Runtime.Component
         [SerializeField] private float explosionRadius = 3f;
         [SerializeField] private bool destroyAtPrc;
         [SerializeField] private float destroyPrc;
+        [SerializeField] private ParticleSystem particle;
         // [SerializeField] private float scaleDownFactor = 0.02f;
         public Rigidbody rb;
         public Transform tr;
@@ -82,6 +83,8 @@ namespace DorudonGames.Runtime.Component
 
         private void Die()
         {
+            if(particle!=null)
+                particle.Play();
             destroyAtPrc = false;
             _isDead = true;
             rb.isKinematic = false;
