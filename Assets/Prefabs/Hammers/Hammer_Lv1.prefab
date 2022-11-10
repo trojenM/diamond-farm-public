@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 713486301871093572}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Hammer_Lv1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -42,7 +42,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6616150248727201941}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: CastPosition
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -115,9 +115,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: -6649043266328126896, guid: 4dadd1ddbc509634b9485a83783cd65d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: -4751482573994700151, guid: 4dadd1ddbc509634b9485a83783cd65d, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 4dadd1ddbc509634b9485a83783cd65d, type: 3}
       propertyPath: m_Name
       value: Hammer_Lvl_1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 4dadd1ddbc509634b9485a83783cd65d, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4dadd1ddbc509634b9485a83783cd65d, type: 3}
@@ -176,6 +188,14 @@ PrefabInstance:
     - target: {fileID: 147642, guid: 685c97d007af49549b239b56b6d2000a, type: 3}
       propertyPath: m_Name
       value: MagicBuffYellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 147642, guid: 685c97d007af49549b239b56b6d2000a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 176418, guid: 685c97d007af49549b239b56b6d2000a, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 465406, guid: 685c97d007af49549b239b56b6d2000a, type: 3}
       propertyPath: m_RootOrder
@@ -265,6 +285,10 @@ PrefabInstance:
       propertyPath: m_VertexStreams.Array.data[2]
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1919906659441110, guid: 685c97d007af49549b239b56b6d2000a, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 198301761303766644, guid: 685c97d007af49549b239b56b6d2000a, type: 3}
       propertyPath: playOnAwake
       value: 0
@@ -295,6 +319,26 @@ PrefabInstance:
     - target: {fileID: 115120, guid: f00b7ce74a405d547ad157c971a52fb9, type: 3}
       propertyPath: m_Name
       value: SparkExplosionYellow
+      objectReference: {fileID: 0}
+    - target: {fileID: 115120, guid: f00b7ce74a405d547ad157c971a52fb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 141794, guid: f00b7ce74a405d547ad157c971a52fb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 147054, guid: f00b7ce74a405d547ad157c971a52fb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 157302, guid: f00b7ce74a405d547ad157c971a52fb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 164448, guid: f00b7ce74a405d547ad157c971a52fb9, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 448448, guid: f00b7ce74a405d547ad157c971a52fb9, type: 3}
       propertyPath: m_RootOrder
