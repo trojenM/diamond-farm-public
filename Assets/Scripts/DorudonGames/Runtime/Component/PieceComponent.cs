@@ -17,6 +17,7 @@ namespace DorudonGames.Runtime.Component
         [SerializeField] private float explosionRadius = 3f;
         [SerializeField] private bool destroyAtPrc;
         [SerializeField] private float destroyPrc;
+        public float GetDestroyPct { get { return destroyPrc; } }
         // [SerializeField] private float scaleDownFactor = 0.02f;
         public Rigidbody rb;
         public Transform tr;

@@ -11,6 +11,7 @@ namespace DorudonGames.Runtime.Component
     public class HammerComponent : MonoBehaviour
     {
         [SerializeField] private ParticleSystem sparkleParticle;
+        [SerializeField] private ParticleSystem mudParticle;
         [SerializeField] private ParticleSystem spawnParticle;
         [SerializeField] private LayerMask layerMask;
         [SerializeField] private Transform castPosition;
@@ -81,7 +82,7 @@ namespace DorudonGames.Runtime.Component
                 return;
             }
           
-            OnHammerHit();
+            OnHammerHit(other.gameObject);
         }
 
         private void RotateHammer()
@@ -115,9 +116,17 @@ namespace DorudonGames.Runtime.Component
             _collider.enabled = true;
         }
 
-        private void OnHammerHit()
+        private void OnHammerHit( GameObject otherObj)
         {
-            sparkleParticle.Play();
+            if(otherObj.GetComponent<PieceComponent >().GetDestroyPct > 0)
+            {
+                mudParticle.Play();
+            }
+            else
+            {
+                sparkleParticle.Play();
+            }
+          
             SoundManager.Instance.Play(CommonTypes.SFX_HAMMER_HIT);
             LevelManager.Instance.IncreaseCreditAmount(GetIncome());
             InterfaceManager.Instance.FlyCurrencyTextFromWorld(castPosition.position, GetIncome());

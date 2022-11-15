@@ -11,98 +11,98 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class UpgradeItem : MonoBehaviour
-{
-    [SerializeField] private UpgradeInfo info;
-    [SerializeField] private TMP_Text headerText;
-    [SerializeField] private TMP_Text reqText;
-    [SerializeField] private Image iconImage;
-    [SerializeField] private Sprite inactiveSprite;
-    [SerializeField] private Sprite activeSprite;
-
-    protected UpgradeType UpgradeType;
-    protected int UpgradeLevel;
-    protected bool Interactable;
-    protected RectTransform RectTr;
-    protected float DefaultAnchorY;
-
-    Image image;
-    public void SetInteractable(bool x) => Interactable = x;
-    public bool GetInteractable => Interactable;
-
-    protected void Awake()
+    public class UpgradeItem : MonoBehaviour
     {
-        Initialize();
-        EventService.AddListener<HideUpgradesEvent>(OnHideUpgradesEvent);
-    }
+        [SerializeField] private UpgradeInfo info;
+        [SerializeField] private TMP_Text headerText;
+        [SerializeField] private TMP_Text reqText;
+        [SerializeField] private Image iconImage;
+        [SerializeField] private Sprite inactiveSprite;
+        [SerializeField] private Sprite activeSprite;
 
-    private void Start()
-    {
-        image = gameObject.GetComponentInChildren<Image>();
-        EventDispatchers.DispatchUpgradeEarned(UpgradeType, info.LevelsAndCosts[UpgradeLevel-1].LevelValue);
-    }
-    private void Update()
-    {
-        if(GameManager.Instance.GetCreditAmount < info.LevelsAndCosts[UpgradeLevel - 1].Cost ||  UpgradeLevel >= info.LevelsAndCosts.Length)
+        protected UpgradeType UpgradeType;
+        protected int UpgradeLevel;
+        protected bool Interactable;
+        protected RectTransform RectTr;
+        protected float DefaultAnchorY;
+
+        Image image;
+        public void SetInteractable(bool x) => Interactable = x;
+        public bool GetInteractable => Interactable;
+
+        protected void Awake()
         {
-            image.sprite = inactiveSprite;
+            Initialize();
+            EventService.AddListener<HideUpgradesEvent>(OnHideUpgradesEvent);
         }
-        else
-        {
-            image.sprite = activeSprite;
-        }
-    }
 
-    public void OnHideUpgradesEvent(HideUpgradesEvent e)
-    {
-        if (e.IsHide)
+        private void Start()
         {
-            RectTr.DOAnchorPosY(DefaultAnchorY - 750f, 0.5f);
+            image = gameObject.GetComponentInChildren<Image>();
+            EventDispatchers.DispatchUpgradeEarned(UpgradeType, info.LevelsAndCosts[UpgradeLevel - 1].LevelValue);
         }
-        else
+        private void Update()
         {
-            RectTr.DOAnchorPosY(DefaultAnchorY, 0.5f);
+            if (GameManager.Instance.GetCreditAmount < info.LevelsAndCosts[UpgradeLevel - 1].Cost || UpgradeLevel >= info.LevelsAndCosts.Length)
+            {
+                image.sprite = inactiveSprite;
+            }
+            else
+            {
+                image.sprite = activeSprite;
+            }
         }
-    }
 
-    private void Initialize()
-    {
-        Interactable = true;
-        iconImage.sprite = info.Icon;
-        headerText.text = info.Header;
-        UpgradeType = info.UpgradeType;
-        RectTr = GetComponent<RectTransform>();
-        DefaultAnchorY = RectTr.anchoredPosition.y;
-        UpgradeLevel = PlayerPrefs.GetInt(info.UpgradeType.ToString(), 1);
-        UpdateButton();
-    }
-
-    public virtual void Select()
-    {
-        if (!Interactable)
-            return;
-        
-        if (GameManager.Instance.GetCreditAmount >= info.LevelsAndCosts[UpgradeLevel-1].Cost)
+        public void OnHideUpgradesEvent(HideUpgradesEvent e)
         {
-            LevelManager.Instance.IncreaseCreditAmount(- info.LevelsAndCosts[UpgradeLevel-1].Cost);
-            UpgradeLevel += 1;
-            PlayerPrefs.SetInt(info.UpgradeType.ToString(), UpgradeLevel);
-            EventDispatchers.DispatchUpgradeEarned(UpgradeType, info.LevelsAndCosts[UpgradeLevel-1].LevelValue);
-            SoundManager.Instance.Play(CommonTypes.SFX_UPGRADE_EARNED);
+            if (e.IsHide)
+            {
+                RectTr.DOAnchorPosY(DefaultAnchorY - 750f, 0.5f);
+            }
+            else
+            {
+                RectTr.DOAnchorPosY(DefaultAnchorY, 0.5f);
+            }
+        }
+
+        private void Initialize()
+        {
+            Interactable = true;
+            iconImage.sprite = info.Icon;
+            headerText.text = info.Header;
+            UpgradeType = info.UpgradeType;
+            RectTr = GetComponent<RectTransform>();
+            DefaultAnchorY = RectTr.anchoredPosition.y;
+            UpgradeLevel = PlayerPrefs.GetInt(info.UpgradeType.ToString(), 1);
             UpdateButton();
         }
-        
-    }
 
-    private void UpdateButton()
-    {
-        if (UpgradeLevel >= info.LevelsAndCosts.Length)
+        public virtual void Select()
         {
-            reqText.text = "MAX";
-            Interactable = false;
-            return;
+            if (!Interactable)
+                return;
+
+            if (GameManager.Instance.GetCreditAmount >= info.LevelsAndCosts[UpgradeLevel - 1].Cost)
+            {
+                LevelManager.Instance.IncreaseCreditAmount(-info.LevelsAndCosts[UpgradeLevel - 1].Cost);
+                UpgradeLevel += 1;
+                PlayerPrefs.SetInt(info.UpgradeType.ToString(), UpgradeLevel);
+                EventDispatchers.DispatchUpgradeEarned(UpgradeType, info.LevelsAndCosts[UpgradeLevel - 1].LevelValue);
+                SoundManager.Instance.Play(CommonTypes.SFX_UPGRADE_EARNED);
+                UpdateButton();
+            }
+
         }
 
-        reqText.text = "$" + info.LevelsAndCosts[UpgradeLevel - 1].Cost;
+        private void UpdateButton()
+        {
+            if (UpgradeLevel >= info.LevelsAndCosts.Length)
+            {
+                reqText.text = "MAX";
+                Interactable = false;
+                return;
+            }
+
+            reqText.text = "$" + info.LevelsAndCosts[UpgradeLevel - 1].Cost;
+        }
     }
-}
