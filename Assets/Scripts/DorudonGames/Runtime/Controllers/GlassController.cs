@@ -37,10 +37,13 @@ namespace DorudonGames.Runtime.Manager
         [ContextMenu("SpawnNextGlass")]
         public void SpawnNextGlass()
         {
+            glassLevel++;
             _current++;
-            if (_current >= _max)
+            if (_current >= _max )
                 _current = 0;
-            
+            if (glassLevel >=4)
+                glassLevel  = 0;
+
             var glass = glasses[glassLevel].glassItems[_current];
             glass.ResetGlass();
             glass.gameObject.SetActive(true);
@@ -64,7 +67,7 @@ namespace DorudonGames.Runtime.Manager
             if (e.UpgradeType != UpgradeType.INCOME)
                 return;
 
-            glassLevel = (int)e.UpgradeLevelValue - 1;
+           // glassLevel = (int)e.UpgradeLevelValue - 1;
         }
 
         // private void OnHammerHit(OnHammerHitEvent e)
