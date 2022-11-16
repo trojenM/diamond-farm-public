@@ -63,10 +63,10 @@ namespace DorudonGames.Runtime.Controllers
             sequence.Join(diamond.tr.DOMove(destroyPosition.position, animationTime));
             sequence.OnComplete(() =>
             {
-                LevelManager.Instance.IncreaseCreditAmount(1000 * incomeMul);
+                LevelManager.Instance.IncreaseCreditAmount(350 * incomeMul);
                 SoundManager.Instance.Play(CommonTypes.SFX_DIAMOND_DESTROY);
-                InterfaceManager.Instance.FlyCurrencyTextFromWorld(diamond.transform.position, 1000 * incomeMul);
-                InterfaceManager.Instance.ActivateNewDiamondAchievedScreen(_spawnedLevel, _spawnedIndex, 1000 * incomeMul);
+                InterfaceManager.Instance.FlyCurrencyTextFromWorld(diamond.transform.position, 350 * incomeMul);
+                InterfaceManager.Instance.ActivateNewDiamondAchievedScreen(_spawnedLevel, _spawnedIndex, 350 * incomeMul);
                 destroyParticle.Play();
                 diamond.gameObject.SetActive(false);
                 FlowManager.Instance.NextFlow();
