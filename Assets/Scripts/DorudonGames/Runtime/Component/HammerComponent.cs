@@ -29,7 +29,7 @@ namespace DorudonGames.Runtime.Component
         private float _incomeMul;
         
 
-        public int GetIncome() { return (int)((damage) * (_incomeMul-(_incomeMul * 0.7f))); }
+        public int GetIncome() { return (int)((damage) * (_incomeMul-(_incomeMul * 0.7f))-1); }
         
         private void Awake()
         {
