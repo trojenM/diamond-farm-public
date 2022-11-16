@@ -23541,7 +23541,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 702662472}
-  m_LocalRotation: {x: -0.018141478, y: -0.00000001024997, z: 0.000000007320913, w: 0.9998355}
+  m_LocalRotation: {x: -0.018141478, y: -0.000000038253425, z: 0.00000002732203, w: 0.9998355}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -34698,14 +34698,19 @@ MonoBehaviour:
   glasses:
   - glassItems:
     - {fileID: 1200111291}
+    - {fileID: 735270494}
   - glassItems:
     - {fileID: 83937684}
+    - {fileID: 1313090871}
   - glassItems:
     - {fileID: 971089641}
+    - {fileID: 1118619001}
   - glassItems:
     - {fileID: 876617014}
+    - {fileID: 221098052}
   - glassItems:
     - {fileID: 893123785}
+    - {fileID: 1186981154}
   spawnPosition: {fileID: 955051542}
   placedPosition: {fileID: 524222599}
   spawnTime: 0.75
