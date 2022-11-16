@@ -18,6 +18,7 @@ namespace DorudonGames.Runtime.Manager
         [SerializeField] private Transform placedPosition;
         [SerializeField] private float spawnTime;
         private int glassLevel = 0, _current = 0, _max;
+        private int _currentGlass = 0;
 
         private void Awake()
         {
@@ -37,14 +38,15 @@ namespace DorudonGames.Runtime.Manager
         [ContextMenu("SpawnNextGlass")]
         public void SpawnNextGlass()
         {
-            glassLevel++;
+            
             _current++;
+            _currentGlass++;
             if (_current >= _max )
                 _current = 0;
-            if (glassLevel >=4)
-                glassLevel  = 0;
+            if (_currentGlass  >=5)
+                _currentGlass  = 5;
 
-            var glass = glasses[glassLevel].glassItems[_current];
+            var glass = glasses[_currentGlass ].glassItems[_current];
             glass.ResetGlass();
             glass.gameObject.SetActive(true);
             glass.tr.position = spawnPosition.position;
@@ -67,7 +69,7 @@ namespace DorudonGames.Runtime.Manager
             if (e.UpgradeType != UpgradeType.INCOME)
                 return;
 
-           // glassLevel = (int)e.UpgradeLevelValue - 1;
+            glassLevel = (int)e.UpgradeLevelValue - 1;
         }
 
         // private void OnHammerHit(OnHammerHitEvent e)
