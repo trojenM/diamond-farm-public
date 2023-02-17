@@ -14,12 +14,20 @@ namespace DorudonGames.Runtime.Misc
         
         //SOUNDS
         public static string SFX_CLICK = "CLICK";
+        public static string SFX_HAMMER_HIT = "HAMMER_HIT";
         public static string SFX_CURRENCY_FLY = "CURRENCY_FLY";
+        public static string SFX_DIAMOND_DESTROY = "DIAMOND_DESTROY";
+        public static string SFX_UPGRADE_EARNED = "UPGRADE_EARNED";
         public static string SFX_WIN = "WIN";
         public static string SFX_LOSE = "LOSE";
 
         //DATA KEYS
         public static string PLAYER_DATA_KEY = "player_data";
+        public static string GLASS_HP_DATA_KEY = "glass_hp";
+        public static string GLASS_SCALE_DATA_KEY = "glass_scale";
+        public static string CURRENT_DIAMOND_DATA_KEY = "current_diamond";
+        public static string CURRENT_GLASS_DATA_KEY = "current_glass";
+        public static string CREDIT_DATA_KEY = "credit_amount_data";
         public static string LEVEL_ID_DATA_KEY = "level_data";
         public static string FIRST_TIME_RUNNED_KEY = "first_time_data";
         public static string SOUND_STATE_KEY = "sound_state_data";
@@ -27,7 +35,7 @@ namespace DorudonGames.Runtime.Misc
         public static string TRUE_KEY = "true_data";
         public static string FALSE_KEY = "false_data";
 
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
 
         public static string EDITOR_LEVELS_PATH = "Levels/";
         public static string EDITOR_GAME_SETTINGS_PATH = "GameSettings";

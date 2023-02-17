@@ -20,9 +20,7 @@ namespace DorudonGames.Runtime.Manager
         /// </summary>
         protected override void Awake()
         {
-            state = PlayerPrefs.GetInt(CommonTypes.VIBRATION_STATE_KEY) == 0;
-            ChangeState(state);
-            
+            state = PlayerPrefs.GetInt(CommonTypes.VIBRATION_STATE_KEY, 1) != 0;
             base.Awake();
         }
 
@@ -52,17 +50,10 @@ namespace DorudonGames.Runtime.Manager
         /// This function helper for change vibration state.
         /// </summary>
         /// <param name="state"></param>
-        public void ChangeState(bool state)
+        public void ChangeState()
         {
-            this.state = state;
-            PlayerPrefs.SetInt(CommonTypes.VIBRATION_STATE_KEY, state ? 0 : 1);
-
-            VibrationStateChanged soundStateChangedEvent = new VibrationStateChanged()
-            {
-                State = state
-            };
-            
-            EventService.DispatchEvent(soundStateChangedEvent);
+            state = !state;
+            PlayerPrefs.SetInt(CommonTypes.VIBRATION_STATE_KEY, state ? 1 : 0);
         }
         
         /// <summary>

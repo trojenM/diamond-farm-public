@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e506613164c0470c8616cf112500647f, type: 3}
+  m_Name: SpeedUpgrade
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 286d70d11c20e8746b4cd89586c1380e, type: 3}
+  Header: Speed Up!
+  UpgradeType: 1
+  LevelsAndCosts:
+  - LevelValue: 1.1
+    Cost: 195
+  - LevelValue: 1.2
+    Cost: 390
+  - LevelValue: 1.3
+    Cost: 1170
+  - LevelValue: 1.4
+    Cost: 1560
+  - LevelValue: 1.5
+    Cost: 1950
+  - LevelValue: 1.55
+    Cost: 2340
+  - LevelValue: 1.6
+    Cost: 2730
+  - LevelValue: 1.65
+    Cost: 3120
+  - LevelValue: 1.7
+    Cost: 3510
+  - LevelValue: 1.75
+    Cost: 3900
+  - LevelValue: 1.8
+    Cost: 4290
+  - LevelValue: 1.85
+    Cost: 4680
+  - LevelValue: 1.9
+    Cost: 5070
+  - LevelValue: 1.95
+    Cost: 5460
+  - LevelValue: 2
+    Cost: 5850
+  - LevelValue: 2.05
+    Cost: 6240
+  - LevelValue: 2.1
+    Cost: 6630
+  - LevelValue: 2.15
+    Cost: 7020
+  - LevelValue: 2.2
+    Cost: 7410
+  - LevelValue: 2.25
+    Cost: 7800
+  - LevelValue: 2.3
+    Cost: 8190
+  - LevelValue: 2.35
+    Cost: 8580
+  - LevelValue: 2.4
+    Cost: 8970
+  - LevelValue: 2.45
+    Cost: 9360

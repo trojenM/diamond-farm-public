@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e506613164c0470c8616cf112500647f, type: 3}
+  m_Name: PowerUpgrade
+  m_EditorClassIdentifier: 
+  Icon: {fileID: 21300000, guid: 1e4525b20a5f89c499c603a09d58b0cf, type: 3}
+  Header: Power Up!
+  UpgradeType: 0
+  LevelsAndCosts:
+  - LevelValue: 0
+    Cost: 292
+  - LevelValue: 1
+    Cost: 585
+  - LevelValue: 2
+    Cost: 1755
+  - LevelValue: 3
+    Cost: 2340
+  - LevelValue: 4
+    Cost: 2925
+  - LevelValue: 5
+    Cost: 3510
+  - LevelValue: 6
+    Cost: 4095
+  - LevelValue: 7
+    Cost: 4680
+  - LevelValue: 8
+    Cost: 5265
+  - LevelValue: 9
+    Cost: 5850
+  - LevelValue: 10
+    Cost: 6435
+  - LevelValue: 11
+    Cost: 7020
+  - LevelValue: 12
+    Cost: 7605
+  - LevelValue: 13
+    Cost: 8190
+  - LevelValue: 14
+    Cost: 8775
+  - LevelValue: 15
+    Cost: 9360
+  - LevelValue: 16
+    Cost: 9945
+  - LevelValue: 17
+    Cost: 10530
+  - LevelValue: 18
+    Cost: 11115
+  - LevelValue: 19
+    Cost: 11700
+  - LevelValue: 20
+    Cost: 12285
+  - LevelValue: 21
+    Cost: 12870
+  - LevelValue: 22
+    Cost: 17491
+  - LevelValue: 23
+    Cost: 14040
